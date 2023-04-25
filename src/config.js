@@ -1,5 +1,7 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, collection, addDoc } from "firebase/firestore";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+import { getFirestore, getDocs, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+// import { initializeApp } from "firebase/app";
+// import { getFirestore, getDocs, collection, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
@@ -12,36 +14,24 @@ const firebaseConfig = {
 };
 
 //init firebase
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 //init service
-const db = getFirestore();
+const db = getFirestore(app);
 
-//collection ref
-const colRef = collection(db, "society")
+//refers to the collection to access
+const colRef = collection(db, 'society')
 
-//get collection data
 getDocs(colRef)
     .then((snapshot) => {
-        let society = []
+        let societies = []
         snapshot.docs.forEach((doc) => {
-            society.push({ ...doc.data(), id: doc.id })
+            societies.push({ ...doc.data(), id: doc.id })
         })
-        console.log(society)
-    }).catch(error => {
+        console.log(societies)
+    })
+    .catch(error => {
         console.log(error.message)
     })
 
-//adding docs
-const addSociety = document.querySelector('.registration')
-addSociety.addEventListener('submit', (e) => {
-    e.preventDefault()
-    addDoc(colRef, {
-        society_name: addSociety.socname.value,
-    })
-        .then(() => {
-            addSociety.reset()
-        })
-})
-
-  //deleting docs
+export { db };

@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society Register</title>
     <link rel="icon" href="../images/website-logo.jpg">
     <link rel="stylesheet" href="../styles/registration-style.css">
-    <title>Society Register</title>
-    <script type="module" src="../src/firebase/config.js"></script>
+    <script type="module" src="../src/config.js"></script>
     <script src="bundle.js"></script>
 </head>
 
 <body>
-    <form method="post" action="" id="registration">
+    <form method="get" action="" id="registration">
         <img src="../images/reg-background.jpg" alt="reg-background" id="registration-background">
 
         <a href="home.html" id="back-to-home">Back to Home</a>
@@ -28,6 +28,8 @@
                     <label for="socname">Society Name</label>
                     <input type="text" id="socname" size="52" required><br><br>
 
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname" required><br><br>
                     <!-- <label for="state">State</label>
                     <input type="text" id="state" size="23" required>
 
