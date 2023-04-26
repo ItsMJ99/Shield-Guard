@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 // import { initializeApp } from "firebase/app";
 // import { getFirestore, getDocs, collection, addDoc } from "firebase/firestore";
 
@@ -22,18 +22,26 @@ const db = getFirestore(app);
 //refers to the collection to access
 const colRef = collection(db, 'society')
 
-//fetch records from Firestore
-getDocs(colRef)
-    .then((snapshot) => {
-        let societies = []
-        snapshot.docs.forEach((doc) => {
-            societies.push({ ...doc.data(), id: doc.id })
-        })
-        console.log(societies)
+//fetch/real time data records from Firestore
+// getDocs(colRef)
+//     .then((snapshot) => {
+//         let societies = []
+//         snapshot.docs.forEach((doc) => {
+//             societies.push({ ...doc.data(), id: doc.id })
+//         })
+//         console.log(societies) 
+//     })
+//     .catch(error => {
+//         console.log(error.message)
+//     })
+
+onSnapshot(colRef, (snapshot) => {
+    let societies = []
+    snapshot.docs.forEach((doc) => {
+        societies.push({ ...doc.data(), id: doc.id })
     })
-    .catch(error => {
-        console.log(error.message)
-    })
+    console.log(societies)
+})
 
 //add records to Firestore
 const addSocReq = document.querySelector('.socReg')
@@ -48,10 +56,14 @@ addSocReq.addEventListener('submit', (e) => {
 })
 
 //delete records from Firestore
-//const delSocForm = document.querySelect('.socReg')
+//create a seperate form for deletion refer the net ninja tutorial playlist on youtube
+const delSocForm = document.querySelect('.socReg')
 delSocForm.addEventListener('submit', (e) => {
     e.preventDefault()
-
+    const docRef = doc(db, 'society', '4S6KsFCaZLt1Kmbfj8To')
+    deleteDoc(docRef).then(() => {
+        delSocReq.reset()
+    })
 })
 
 export { db };
