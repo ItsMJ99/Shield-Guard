@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-import { getFirestore, getDocs, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 // import { initializeApp } from "firebase/app";
 // import { getFirestore, getDocs, collection, addDoc } from "firebase/firestore";
 
@@ -22,6 +22,7 @@ const db = getFirestore(app);
 //refers to the collection to access
 const colRef = collection(db, 'society')
 
+//fetch records from Firestore
 getDocs(colRef)
     .then((snapshot) => {
         let societies = []
@@ -33,5 +34,24 @@ getDocs(colRef)
     .catch(error => {
         console.log(error.message)
     })
+
+//add records to Firestore
+const addSocReq = document.querySelector('.socReg')
+addSocReq.addEventListener('submit', (e) => {
+    e.preventDefault()
+    addDoc(colRef, {
+        society_name: addSocReq.socname.value,
+        owner: addSocReq.firstname.value,
+    }).then(() => {
+        addSocReq.reset()
+    })
+})
+
+//delete records from Firestore
+//const delSocForm = document.querySelect('.socReg')
+delSocForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+})
 
 export { db };
