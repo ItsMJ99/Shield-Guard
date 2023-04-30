@@ -1,8 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
-// import { initializeApp } from "firebase/app";
-// import { getFirestore, getDocs, collection, addDoc, onAuthStateChanged } from "firebase/firestore";
+//import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+//import { initializeApp } from "firebase/app";
+//import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, query, where, orderBy, serverTimestamp } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
@@ -19,7 +19,6 @@ const app = initializeApp(firebaseConfig);
 
 //init service
 const db = getFirestore(app);
-const auth = getAuth(app);
 
 //refers to the collection to access
 const colRef = collection(db, 'society registration requests')
@@ -28,6 +27,7 @@ const colRef = collection(db, 'society registration requests')
 const addSocReq = document.querySelector('.societyRegistration')
 addSocReq.addEventListener('submit', (e) => {
     e.preventDefault()
+    alert('here')
     addDoc(colRef, {
         owner_fname: addSocReq.o_fname.value,
         owner_mname: addSocReq.o_mname.value,
@@ -47,13 +47,28 @@ addSocReq.addEventListener('submit', (e) => {
         society_state: addSocReq.s_state.value,
         society_district: addSocReq.s_district.value,
         society_pincode: addSocReq.s_pincode.value,
+        //society_document: addSocReq.o_doc.value,
         society_email: addSocReq.s_email.value,
         society_phoneno: addSocReq.s_phoneno.value,
         society_FoundingDay: addSocReq.s_date.value,
-        society_admins: addSocReq.s_admins.value,
-
+        society_admins: addSocReq.s_admins.value
     }).then(() => {
         addSocReq.reset()
     })
 })
+
+//used to check if the firestore is connected to see data in dev console
+// getDocs(colRef)
+//     .then((snapshot) => {
+//         let societies = []
+//         snapshot.docs.forEach((doc) => {
+//             societies.push({ ...doc.data(), id: doc.id })
+//         })
+//         console.log(societies)
+//     })
+//     .catch(error => {
+//         console.log(error.message)
+//     })
+
+export { db };
 

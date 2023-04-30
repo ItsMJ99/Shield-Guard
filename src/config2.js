@@ -25,7 +25,7 @@ onSnapshot(docRef, (doc) => {
 })
 
 //replace the colRef with q to get only a specific record else you will get entire records
-onSnapshot(q, (snapshot) => {
+onSnapshot(colRef, (snapshot) => {
     let societies = []
     snapshot.docs.forEach((doc) => {
         societies.push({ ...doc.data(), id: doc.id })
@@ -114,4 +114,4 @@ unsubBtn.addEventListener('click', () => {
     unsubAuth()
 })
 
-export { db };
+//export { db };

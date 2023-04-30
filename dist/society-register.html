@@ -6,8 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShieldGuard Register</title>
+  <script type='module' src="../src/config.js"></script>
+  <script src="bundle.js"></script>
   <script>
-    function verifiedEmail() {
+    function verifiedOwnerEmail() {
       alert("OTP successfully sent on your Email")
       document.getElementById("otp_email").style.display = "block";
       document.getElementById("otp_e").style.display = "block";
@@ -16,14 +18,18 @@
       alert("OTP successfully sent on your Mobile no")
       document.getElementById("ver1").style.display = "block";
       document.getElementById("ver2").style.display = "block";
-
     }
+
+    function verifiedSocietyEmail() {
+      alert("OTP successfully sent on your Email")
+      document.getElementById("otp_email1").style.display = "block";
+      document.getElementById("otp_e1").style.display = "block";
+    }
+
     function pop_up() {
       alert("Successfully Registerd")
     }
   </script>
-  <script type="module" src="../src/config.js"></script>
-  <script src="../dist/bundle.js"></script>
 </head>
 
 <body>
@@ -34,31 +40,31 @@
     <a href="home.html" id="back-to-home">Back to Home</a>
     <center>
       <h2>Owner Details</h2>
-      <!-- <label for="f_name">Name :</label> -->
+
       <input type="text" id="o_fname" placeholder="First Name" required>
       <input type="text" id="o_mname" placeholder="Middle Name" required>
       <input type="text" id="o_lname" placeholder="Last Name" required><br><br>
 
-      <label for="email">Owner's Email</label>
-      <input type="email" id="o_email" placeholder="Email ID" required>
-      <input type="submit" onclick="verifiedEmail()" value="OTP Generate" required><br><br>
+      <label for="o_email">Owner's Email</label>
+      <input type="text" id="o_email" placeholder="Email ID" required>
+      <input type="submit" onclick="verifiedOwnerEmail()" value="OTP Generate" required><br><br>
       <input type="text" style="display: none;" maxlength="6" id="otp_email" required><br>
       <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required><br><br>
 
       <input type="password" id="o_password" placeholder="Password" required><br><br>
       <input type="password" id="o_confirm_password" placeholder="Confirm Password" required><br><br>
 
-      <label for="phoneno">Owner's Phone No.</label>
+      <label for="o_phoneno">Owner's Phone No.</label>
       <input type="tel" id="o_phoneno" placeholder="Phone No" required>
       <input type="submit" onclick="verifiedPhoneNo()" value="OTP Generate" required> <br><br>
       <input type="text" style="display:none;" maxlength="6" id="ver1" required><br>
       <input type="submit" style="display: none;" id="ver2" value="Confirm Phone No" required><br><br>
 
-      <!-- date of birth -->
+
       <label for="dob">Date of Birth</label>
       <input type="date" id="o_dob" required><br>
 
-      <!-- gender -->
+
       <p>Select Your Gender</p>
       Male :<input type="radio" name="o_gender" id="o_gender" value="Male" required><br>
       Female:<input type="radio" name="o_gender" id="o_gender" value="Female" required><br>
@@ -67,7 +73,7 @@
 
       Address<br><textarea name="address" id="o_address" cols="60" rows="3" required></textarea><br><br>
 
-      <!-- State -->
+
       <label for="country-state">State</label>
       <select id="o_state" name="country-state" required>
         <option value="AN">Andaman and Nicobar Islands</option>
@@ -111,12 +117,12 @@
       District <input type="text" id="o_district" placeholder="district" required><br><br>
       Pincode <input type="number" id="o_pincode" placeholder="pincode/zipcode">
 
-      <!-- Society Details -->
+
       <h1>Society Details</h1>
       Society Name <input type="text" id="s_name" placeholder="Society Name" required><br><br>
       Society Address<br><textarea name="address" id="s_address" cols="60" rows="3" required></textarea><br><br>
 
-      <!-- state -->
+
       <label for="country-state">State</label>
       <select id="s_state" name="country-state" required>
         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -160,19 +166,21 @@
       District <input type="text" id="s_district" placeholder="District" required><br><br>
       Pincode <input type="number" id="s_pincode" placeholder="pincode/zipcode"><br><br>
 
+      <!-- <label for="ownerdoc">Society Ownership Document </label>
+      <input id="ownerdoc" type="file" name="o_doc" accept=".png,.jpg,.jpeg,.pdf" required><br><br> -->
+
       <input type="email" id="s_email" placeholder="Society Email" required>
-      <input type="submit" onclick="verifiedEmail()" value="OTP Generate"><br><br>
+      <input type="submit" onclick="verifiedSocietyEmail()" value="OTP Generate"><br><br>
       <input type="text" style="display: none;" maxlength="6" id="otp_email1" required><br>
       <input type="submit" style="display: none;" id="otp_e1" value="Confirm Email" required><br><br>
 
-      <input type="text" maxlength="6" id="otp_email" required><br><br>
       Phone No. <input type="tel" id="s_phoneno" placeholder="Society Contact Information" required><br><br>
 
-      <!-- founding date of society -->
+
       <label for="s_date">Society Founding Date</label>
       <input type="date" id="s_date" required><br><br>
 
-      <!-- Society Admin/Members no -->
+
       <label for="s_admins">Total Society Administratives</label>
       <select id="s_admins" required>
         <option value="1">1</option>
@@ -182,8 +190,8 @@
         <option value="5">5</option>
       </select><br><br>
 
-      <input type="submit" value="Send Request">
-      <input id="reset" type="reset" value="Reset">
+      <button value="socReg">Send Registration Request</button>
+      <button type="reset">Reset Form</button>
     </center>
   </form>
 </body>
