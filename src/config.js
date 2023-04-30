@@ -22,10 +22,32 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 //refers to the collection to access
-const colRef = collection(db, 'society')
+const colRef = collection(db, 'society registration requests')
+
+//add records to Firestore
+const addSocReq = document.querySelector('.societyRegistration')
+addSocReq.addEventListener('submit', (e) => {
+    e.preventDefault()
+    addDoc(colRef, {
+        owner_fname: addSocReq.fname.value,
+        owner_mname: addSocReq.mname.value,
+        owner_lname: addSocReq.lname.value,
+        owner_email: addSocReq.email.value,
+        owner_password: addSocReq.password.value,
+        owner_confirm_password: addSocReq.confirm_password.value,
+        owner_phoneno: addSocReq.phoneno.value,
+        owner_dob: addSocReq.dob.value,
+        owner_gender: addSocReq.gender.value,
+        owner_address: addSocReq.address.value,
+        owner_district: addSocReq.district.value,
+        owner_state: addSocReq.state.value,
+    }).then(() => {
+        addSocReq.reset()
+    })
+})
 
 //queries
-const q = query(colRef, where("owner", "==", "Peter"))//add --> , orderBy('owner', 'desc') after ") to order
+//const q = query(colRef)//add --> , where("owner", "==", "Peter")), orderBy('owner', 'desc') after ") to order
 
 //fetch/real time data records from Firestore
 // getDocs(colRef)
@@ -57,18 +79,6 @@ onSnapshot(q, (snapshot) => {
         societies.push({ ...doc.data(), id: doc.id })
     })
     console.log(societies)
-})
-
-//add records to Firestore
-const addSocReq = document.querySelector('.socReg')
-addSocReq.addEventListener('submit', (e) => {
-    e.preventDefault()
-    addDoc(colRef, {
-        society_name: addSocReq.socname.value,
-        owner: addSocReq.firstname.value,
-    }).then(() => {
-        addSocReq.reset()
-    })
 })
 
 //delete records from Firestore

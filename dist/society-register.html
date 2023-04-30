@@ -2,110 +2,299 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Society Register</title>
-    <link rel="icon" href="../images/website-logo.jpg">
-    <link rel="stylesheet" href="../styles/registration-style.css">
-    <script type="module" src="../src/config.js"></script>
-    <script src="bundle.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShieldGuard Register</title>
+  <script>
+    function verifiedEmail() {
+      alert("OTP successfully sent on your Email")
+      document.getElementById("otp_email").style.display = "block";
+      document.getElementById("otp_e").style.display = "block";
+    }
+    function verifiedPhoneNo() {
+      alert("OTP successfully sent on your Mobile no")
+      document.getElementById("ver1").style.display = "block";
+      document.getElementById("ver2").style.display = "block";
+
+    }
+    function pop_up() {
+      alert("Successfully Registerd")
+    }
+  </script>
+  <script type="module" src="../src/config.js"></script>
+  <script src="../dist/bundle.js"></script>
 </head>
 
 <body>
-    <form method="get" action="" id="registration" class="socReg">
-        <img src="../images/reg-background.jpg" alt="reg-background" id="registration-background">
+  <center>
+    <h1>Society Registration</h1>
+  </center>
+  <form class="societyRegistration">
+    <center>
+      <h2>Owner Details</h2>
+      <!-- <label for="f_name">Name :</label> -->
+      <input type="text" id="fname" placeholder="First Name" required>
+      <input type="text" id="mname" placeholder="Middle Name" required>
+      <input type="text" id="lname" placeholder="Last Name" required><br><br>
 
-        <a href="home.html" id="back-to-home">Back to Home</a>
+      <label for="email">Owner's Email</label>
+      <input type="email" id="email" placeholder="Email ID" required>
+      <input type="submit" onclick="verifiedEmail()" value="OTP Generate" required><br><br>
+      <input type="text" style="display: none;" maxlength="6" id="otp_email" required><br>
+      <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required><br><br>
 
-        <h1>
-            <center>Society Registration Details</center><br>
-        </h1>
+      <input type="password" id="password" placeholder="Password" required><br><br>
+      <input type="password" id="confirm_password" placeholder="Confirm Password" required><br><br>
 
-        <div>
-            <h2>
-                <center>
-                    <label for="socname">Society Name</label>
-                    <input type="text" id="socname" size="52" required><br><br>
+      <label for="phoneno">Owner's Phone No.</label>
+      <input type="tel" id="phoneno" placeholder="Phone No" required>
+      <input type="submit" onclick="verifiedPhoneNo()" value="OTP Generate" required> <br><br>
+      <input type="text" style="display:none;" maxlength="6" id="ver1" required><br>
+      <input type="submit" style="display: none;" id="ver2" value="Confirm Phone No" required><br><br>
 
-                    <label for="firstname">First Name</label>
-                    <input type="text" id="firstname" required><br><br>
-                    <!-- <label for="state">State</label>
-                    <input type="text" id="state" size="23" required>
+      <!-- date of birth -->
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" required><br>
 
-                    <label for="district">District</label>
-                    <input type="text" id="district" size="23" required><br><br>
+      <!-- gender -->
+      <p>Select Your Gender</p>
+      Male :<input type="radio" name="gender" id="male" value="Male" required><br>
+      Female:<input type="radio" name="gender" id="Female" value="Female" required><br>
+      Other:<input type="radio" name="gender" id="other" value="Other" required><br>
+      <br>
 
-                    <label for="pincode">Pincode</label>
-                    <input type="number" id="pincode" required>
+      <!-- <label for="occupation">Occupation :</label>
+      <select class="form-control dropdown" id="occupation" name="occupation" required>
+        <option value="" selected="selected" disabled="disabled">-- select one --</option>
+        <optgroup label="Healthcare Practitioners and Technical Occupations:">
+          <option value="1">- Chiropractor</option>
+          <option value="2">- Dentist</option>
+          <option value="3">- Dietitian or Nutritionist</option>
+          <option value="4">- Optometrist</option>
+          <option value="5">- Pharmacist</option>
+          <option value="6">- Physician</option>
+          <option value="7">- Physician Assistant</option>
+          <option value="8">- Podiatrist</option>
+          <option value="9">- Registered Nurse</option>
+          <option value="10">- Therapist</option>
+          <option value="11">- Veterinarian</option>
+          <option value="12">- Health Technologist or Technician</option>
+          <option value="13">- Other Healthcare Practitioners and Technical Occupation</option>
+        </optgroup>
+        <optgroup label="Healthcare Support Occupations:">
+          <option value="14">- Nursing, Psychiatric, or Home Health Aide</option>
+          <option value="15">- Occupational and Physical Therapist Assistant or Aide</option>
+          <option value="16">- Other Healthcare Support Occupation</option>
+        </optgroup>
+        <optgroup label="Business, Executive, Management, and Financial Occupations:">
+          <option value="17">- Chief Executive</option>
+          <option value="18">- General and Operations Manager</option>
+          <option value="19">- Advertising, Marketing, Promotions, Public Relations, and Sales Manager</option>
+          <option value="20">- Operations Specialties Manager (e.g., IT or HR Manager)</option>
+          <option value="21">- Construction Manager</option>
+          <option value="22">- Engineering Manager</option>
+          <option value="23">- Accountant, Auditor</option>
+          <option value="24">- Business Operations or Financial Specialist</option>
+          <option value="25">- Business Owner</option>
+          <option value="26">- Other Business, Executive, Management, Financial Occupation</option>
+        </optgroup>
+        <optgroup label="Architecture and Engineering Occupations:">
+          <option value="27">- Architect, Surveyor, or Cartographer</option>
+          <option value="28">- Engineer</option>
+          <option value="29">- Other Architecture and Engineering Occupation</option>
+        </optgroup>
+        <optgroup label="Education, Training, and Library Occupations:">
+          <option value="30">- Postsecondary Teacher (e.g., College Professor)</option>
+          <option value="31">- Primary, Secondary, or Special Education School Teacher</option>
+          <option value="32">- Other Teacher or Instructor</option>
+          <option value="33">- Other Education, Training, and Library Occupation</option>
+        </optgroup>
+        <optgroup label="Other Professional Occupations:">
+          <option value="34">- Arts, Design, Entertainment, Sports, and Media Occupations</option>
+          <option value="35">- Computer Specialist, Mathematical Science</option>
+          <option value="36">- Counselor, Social Worker, or Other Community and Social Service Specialist</option>
+          <option value="37">- Lawyer, Judge</option>
+          <option value="38">- Life Scientist (e.g., Animal, Food, Soil, or Biological Scientist, Zoologist)</option>
+          <option value="39">- Physical Scientist (e.g., Astronomer, Physicist, Chemist, Hydrologist)</option>
+          <option value="40">- Religious Worker (e.g., Clergy, Director of Religious Activities or Education)</option>
+          <option value="41">- Social Scientist and Related Worker</option>
+          <option value="42">- Other Professional Occupation</option>
+        </optgroup>
+        <optgroup label="Office and Administrative Support Occupations:">
+          <option value="43">- Supervisor of Administrative Support Workers</option>
+          <option value="44">- Financial Clerk</option>
+          <option value="45">- Secretary or Administrative Assistant</option>
+          <option value="46">- Material Recording, Scheduling, and Dispatching Worker</option>
+          <option value="47">- Other Office and Administrative Support Occupation</option>
+        </optgroup>
+        <optgroup label="Services Occupations:">
+          <option value="48">- Protective Service (e.g., Fire Fighting, Police Officer, Correctional Officer)</option>
+          <option value="49">- Chef or Head Cook</option>
+          <option value="50">- Cook or Food Preparation Worker</option>
+          <option value="51">- Food and Beverage Serving Worker (e.g., Bartender, Waiter, Waitress)</option>
+          <option value="52">- Building and Grounds Cleaning and Maintenance</option>
+          <option value="53">- Personal Care and Service (e.g., Hairdresser, Flight Attendant, Concierge)</option>
+          <option value="54">- Sales Supervisor, Retail Sales</option>
+          <option value="55">- Retail Sales Worker</option>
+          <option value="56">- Insurance Sales Agent</option>
+          <option value="57">- Sales Representative</option>
+          <option value="58">- Real Estate Sales Agent</option>
+          <option value="59">- Other Services Occupation</option>
+        </optgroup>
+        <optgroup label="Agriculture, Maintenance, Repair, and Skilled Crafts Occupations:">
+          <option value="60">- Construction and Extraction (e.g., Construction Laborer, Electrician)</option>
+          <option value="61">- Farming, Fishing, and Forestry</option>
+          <option value="62">- Installation, Maintenance, and Repair</option>
+          <option value="63">- Production Occupations</option>
+          <option value="64">- Other Agriculture, Maintenance, Repair, and Skilled Crafts Occupation</option>
+        </optgroup>
+        <optgroup label="Transportation Occupations:">
+          <option value="65">- Aircraft Pilot or Flight Engineer</option>
+          <option value="66">- Motor Vehicle Operator (e.g., Ambulance, Bus, Taxi, or Truck Driver)</option>
+          <option value="67">- Other Transportation Occupation</option>
+        </optgroup>
+        <optgroup label="Other Occupations:">
+          <option value="68">- Military</option>
+          <option value="69">- Homemaker</option>
+          <option value="70">- Other Occupation</option>
+          <option value="71">- Don't Know</option>
+          <option value="72">- Not Applicable</option>
+        </optgroup>
+      </select><br><br> -->
 
-                    <label for=country">Country</label>
-                    <input type="text" id="country" required><br><br>
+      Address<br><textarea name="address" id="address" cols="60" rows="3" required></textarea><br><br>
+      <input type="number" placeholder="pincode">
+      District <input type="text" placeholder="district" required><br><br>
 
+      <!-- State -->
+      <label for="country-state">State</label>
+      <select id="state" name="country-state" required>
+        <option value="AN">Andaman and Nicobar Islands</option>
+        <option value="AP">Andhra Pradesh</option>
+        <option value="AR">Arunachal Pradesh</option>
+        <option value="AS">Assam</option>
+        <option value="BR">Bihar</option>
+        <option value="CH">Chandigarh</option>
+        <option value="CT">Chhattisgarh</option>
+        <option value="DN">Dadra and Nagar Haveli</option>
+        <option value="DD">Daman and Diu</option>
+        <option value="DL">Delhi</option>
+        <option value="GA">Goa</option>
+        <option value="GJ">Gujarat</option>
+        <option value="HR">Haryana</option>
+        <option value="HP">Himachal Pradesh</option>
+        <option value="JK">Jammu and Kashmir</option>
+        <option value="JH">Jharkhand</option>
+        <option value="KA">Karnataka</option>
+        <option value="KL">Kerala</option>
+        <option value="LA">Ladakh</option>
+        <option value="LD">Lakshadweep</option>
+        <option value="MP">Madhya Pradesh</option>
+        <option value="MH">Maharashtra</option>
+        <option value="MN">Manipur</option>
+        <option value="ML">Meghalaya</option>
+        <option value="MZ">Mizoram</option>
+        <option value="NL">Nagaland</option>
+        <option value="OR">Odisha</option>
+        <option value="PY">Puducherry</option>
+        <option value="PB">Punjab</option>
+        <option value="RJ">Rajasthan</option>
+        <option value="SK">Sikkim</option>
+        <option value="TN">Tamil Nadu</option>
+        <option value="TG">Telangana</option>
+        <option value="TR">Tripura</option>
+        <option value="UP">Uttar Pradesh</option>
+        <option value="UT">Uttarakhand</option>
+        <option value="WB">West Bengal</option>
+      </select><br><br>
+  </form>
+  </center>
+  <!-- Society Details -->
+  <center>
+    <form>
+      <h3>Society Details</h3>
+      <input type="text" id="Society Name" placeholder="Society Name" required><br><br>
+      <label for="society_type">Society Type</label>
+      <select name="" id="society_type" required>
+        <option value="">Select one</option>
+        <option value="charity">Charity</option>
+        <option value="Religious Organization">Religious Organization</option>
+        <option value="Tenant co-partnership housing cooperatives">Tenant co-partnership housing cooperatives</option>
+        <option value="House building societies ">House building societies</option>
+      </select><br><br>
 
-                    <label for="address">Enter Society Address</label><br>
-                    <textarea name="address" id="address" cols="72" rows="3" placeholder="Enter society address here..."
-                        required></textarea><br><br>
+      <!-- state -->
+      <label for="country-state">State</label>
+      <select id="country-state" name="country-state" required>
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+        <option value="Daman and Diu">Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="HR">Haryana</option>
+        <option value="HP">Himachal Pradesh</option>
+        <option value="JK">Jammu and Kashmir</option>
+        <option value="JH">Jharkhand</option>
+        <option value="KA">Karnataka</option>
+        <option value="KL">Kerala</option>
+        <option value="LA">Ladakh</option>
+        <option value="LD">Lakshadweep</option>
+        <option value="MP">Madhya Pradesh</option>
+        <option value="MH">Maharashtra</option>
+        <option value="MN">Manipur</option>
+        <option value="ML">Meghalaya</option>
+        <option value="MZ">Mizoram</option>
+        <option value="NL">Nagaland</option>
+        <option value="OR">Odisha</option>
+        <option value="PY">Puducherry</option>
+        <option value="PB">Punjab</option>
+        <option value="RJ">Rajasthan</option>
+        <option value="SK">Sikkim</option>
+        <option value="TN">Tamil Nadu</option>
+        <option value="TG">Telangana</option>
+        <option value="TR">Tripura</option>
+        <option value="UP">Uttar Pradesh</option>
+        <option value="UT">Uttarakhand</option>
+        <option value="WB">West Bengal</option>
+      </select><br><br>
+      <label for="city">City/Village</label>
+      <input type="text" placeholder="Scoeity City/Village" required><br><br>
+      <input type="text" placeholder="Soceity Address" required><br><br>
 
-                    <label for="ownerdoc">Society Ownership Document</label><br>
-                    <input id="ownerdoc" type="file" name="ownerdoc" accept=".png,.jpg,.jpeg,.pdf">required
-                </center>
-            </h2>
-        </div>
+      <input type="email" id="email" placeholder="Society Email" required>
+      <input type="submit" onclick="oncclickk()" value="OTP Generate"><br><br>
+      <input type="text" style="display: none;" maxlength="6" id="otp_email1" required><br>
+      <input type="submit" style="display: none;" id="otp_e1" value="Confirm Email" required><br><br>
 
-        <h1>
-            <center>Owner Details</center>
-        </h1>
+      <input type="text" maxlength="6" id="otp_email" required><br><br>
+      <input type="tel" id="contact_no" placeholder="Society Contact Information" required><br><br>
 
-        <div>
-            <h3>
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" required>
+      <!-- founding date of scoeity -->
+      <label for="date">Society Founding Date</label>
+      <input type="date" id="date" required><br><br>
 
-                <label for="middlename">Middle Name</label>
-                <input type="text" id="middlename" required>
+      <!-- Society Admin/Members no -->
+      <label for="admin_no">Society Administratives</label>
+      <select id="admin_no" required>
+        <option value="">select one</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br><br>
 
-                <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" required><br><br>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-                <label for="username">Username</label>
-                <input type="text" id="username" required><br><br>
-
-                <label for="password">Password</label>
-                <input type="password" id="password" required>
-                <label for="reenterpassword">Re Enter Password</label>
-                <input type="password" id="reenterpassword" required><br><br>
-
-                <label required>Select Your Gender </label>
-                <input type="radio" name="gender" value="male">Male
-                <input type="radio" name="gender" value="female">Female
-                <input type="radio" name="gender" value="other">Other
-
-                <label for="country">Select Your Country</label>
-                <select name="country" id="country" required>
-                    <option value="India">India</option>
-                    <option value="Russia">Russia</option>
-                    <option value="China">China</option>
-                    <option value="Usa">USA</option>
-                </select><br><br>
-
-                <label for="securityquestion">Select a Security Question</label>
-                <select name="securityquestion" id="securityquestion" required>
-                    <option value="q1">What was/is your first pets name ?</option>
-                    <option value="q2">What is your crush's name</option>
-                    <option value="q3">What is your favourite singers name</option>
-                </select><br><br>
-                <label for="securityquestionanswer" required>Enter Security Question's Answer</label><br><br>
-                <input type="text"> -->
-                    <br><br>
-                    <button id="addSoc">SUBMIT</button>
-                    <button id="delSoc">DELETE</button>
-                    <button id="clear" type="reset">RESET</button>
-        </div>
-
-    </form>
+      <input type="submit" value="Sign up" onclick="pop_up()" required>
+  </center>
+  </form>
 </body>
 
 </html>
