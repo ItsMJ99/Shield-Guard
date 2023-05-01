@@ -1,6 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
-//import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 //import { initializeApp } from "firebase/app";
 //import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, query, where, orderBy, serverTimestamp } from "firebase/firestore";
 
