@@ -6,8 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShieldGuard Register</title>
-  <script type='module' src="../src/config.js"></script>
-  <script src="bundle.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/Registration.css">
   <script>
     function verifiedOwnerEmail() {
       alert("OTP successfully sent on your Email")
@@ -33,167 +34,224 @@
 </head>
 
 <body>
-  <center>
-    <h1>Society Registration</h1>
-  </center>
-  <form class="societyRegistration">
-    <a href="home.html" id="back-to-home">Back to Home</a>
-    <center>
-      <h2>Owner Details</h2>
 
-      <input type="text" id="o_fname" placeholder="First Name" required>
-      <input type="text" id="o_mname" placeholder="Middle Name" required>
-      <input type="text" id="o_lname" placeholder="Last Name" required><br><br>
+  <div class="img">
+    <img src="./Shield1.png" class="img1" alt="Shield-removebg-preview">
+  </div>
+  <br><br>
+  <h2 class="head1">Registration for Society</h2>
+  <br><br>
 
-      <label for="o_email">Owner's Email</label>
-      <input type="text" id="o_email" placeholder="Email ID" required>
-      <input type="submit" onclick="verifiedOwnerEmail()" value="OTP Generate" required><br><br>
-      <input type="text" style="display: none;" maxlength="6" id="otp_email" required><br>
-      <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required><br><br>
+  <div class="container">
 
-      <input type="password" id="o_password" placeholder="Password" required><br><br>
-      <input type="password" id="o_confirm_password" placeholder="Confirm Password" required><br><br>
+    <div class="container1">
 
-      <label for="o_phoneno">Owner's Phone No.</label>
-      <input type="tel" id="o_phoneno" placeholder="Phone No" required>
-      <input type="submit" onclick="verifiedPhoneNo()" value="OTP Generate" required> <br><br>
-      <input type="text" style="display:none;" maxlength="6" id="ver1" required><br>
-      <input type="submit" style="display: none;" id="ver2" value="Confirm Phone No" required><br><br>
+      <form>
 
+        <h3>Owner Details</h3><br>
 
-      <label for="dob">Date of Birth</label>
-      <input type="date" id="o_dob" required><br>
+        <div class="container3">
+          <center>
 
+            <!-- <label class="Input-label" for="f_name">First Name :</label> -->
+            <input type="text" id="f_name" placeholder="First Name" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="o_mname" placeholder="Middle Name" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- <label class="Input-label" for="f_name">Last Name :</label> -->
+            <input type="text" id="l_name" placeholder="Last Name" required><br><br>
 
-      <p>Select Your Gender</p>
-      Male :<input type="radio" name="o_gender" id="o_gender" value="Male" required><br>
-      Female:<input type="radio" name="o_gender" id="o_gender" value="Female" required><br>
-      Other:<input type="radio" name="o_gender" id="o_gender" value="Other" required><br>
-      <br>
+            <div class="in2">
+              <!-- <label for="email"></label> -->
+              <input type="email" id="email" placeholder="Your Email" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="submit" onclick="oncclick()" value="OTP Generate" required><br>&nbsp;&nbsp;
+              <input type="text" style="display: none;" maxlength="6" id="otp_email" required>&nbsp;&nbsp;
+              <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required><br>
+            </div>
 
-      Address<br><textarea name="address" id="o_address" cols="60" rows="3" required></textarea><br><br>
+            <input type="password" id="password" placeholder="Password" required>&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="password" id="confirm_password" placeholder="Confirm Password" required><br><br>
 
+            <div class="in3">
+              <input type="tel" id="phone_no" placeholder="Your Phone No" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="submit" onclick="verifiedOwnerEmail()" value="OTP Generate" required><br>&nbsp;&nbsp;
+              <input type="text" style="display:none;" maxlength="6" id="ver1" required>&nbsp;&nbsp;
+              <input type="submit" style="display:none;" id="ver2" value="Confirm Phone No" required><br>
+            </div>
+            <!-- gender -->
 
-      <label for="country-state">State</label>
-      <select id="o_state" name="country-state" required>
-        <option value="AN">Andaman and Nicobar Islands</option>
-        <option value="AP">Andhra Pradesh</option>
-        <option value="AR">Arunachal Pradesh</option>
-        <option value="AS">Assam</option>
-        <option value="BR">Bihar</option>
-        <option value="CH">Chandigarh</option>
-        <option value="CT">Chhattisgarh</option>
-        <option value="DN">Dadra and Nagar Haveli</option>
-        <option value="DD">Daman and Diu</option>
-        <option value="DL">Delhi</option>
-        <option value="GA">Goa</option>
-        <option value="GJ">Gujarat</option>
-        <option value="HR">Haryana</option>
-        <option value="HP">Himachal Pradesh</option>
-        <option value="JK">Jammu and Kashmir</option>
-        <option value="JH">Jharkhand</option>
-        <option value="KA">Karnataka</option>
-        <option value="KL">Kerala</option>
-        <option value="LA">Ladakh</option>
-        <option value="LD">Lakshadweep</option>
-        <option value="MP">Madhya Pradesh</option>
-        <option value="MH">Maharashtra</option>
-        <option value="MN">Manipur</option>
-        <option value="ML">Meghalaya</option>
-        <option value="MZ">Mizoram</option>
-        <option value="NL">Nagaland</option>
-        <option value="OR">Odisha</option>
-        <option value="PY">Puducherry</option>
-        <option value="PB">Punjab</option>
-        <option value="RJ">Rajasthan</option>
-        <option value="SK">Sikkim</option>
-        <option value="TN">Tamil Nadu</option>
-        <option value="TG">Telangana</option>
-        <option value="TR">Tripura</option>
-        <option value="UP">Uttar Pradesh</option>
-        <option value="UT">Uttarakhand</option>
-        <option value="WB">West Bengal</option>
-      </select><br><br>
-      District <input type="text" id="o_district" placeholder="district" required><br><br>
-      Pincode <input type="number" id="o_pincode" placeholder="pincode/zipcode">
+            <p class="p1">Select Your Gender :</p>&nbsp;&nbsp;
+            <div class="gender">
+              <input type="radio" name="Gender" id="male" value="Male" required>&nbsp;Male&nbsp;&nbsp;
+              <input type="radio" name="Gender" id="Female" value="Female" required>&nbsp;Female&nbsp;&nbsp;
+              <input type="radio" name="Gender" id="other" value="Other" required>&nbsp;Other
+            </div>
 
 
-      <h1>Society Details</h1>
-      Society Name <input type="text" id="s_name" placeholder="Society Name" required><br><br>
-      Society Address<br><textarea name="address" id="s_address" cols="60" rows="3" required></textarea><br><br>
+            <!-- date of birth -->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="date">Date of Birth :</label>&nbsp;&nbsp;
+            <input type="date" id="date" required><br><br>
+
+            Address<br><textarea name="address" id="o_address" cols="60" rows="3" required></textarea><br><br>
+
+            <div class="p1">
+
+              <!-- State -->
+              <label for="country-state">State :</label>&nbsp;&nbsp;
+              <select id="country-state" name="country-state" required>
+                <option value="">Select state</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                <option value="Daman and Diu">Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Ladakh">Ladakh</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Puducherry">Puducherry</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+              <label class=".p1" for="city">City/Village :</label>&nbsp;&nbsp;
+              <input type="text" placeholder="Your City/Village" required> &nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+              Pincode <input type="number" id="o_pincode" placeholder="pincode/zipcode">
+            </div>
+          </center>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container2">
+
+    <!-- Soceity Details -->
+    <form>
+      <h3>Society Details</h3><br>
+      <center>
+        <div class="container4">
+          Society Name <input type="text" id="s_name" placeholder="Society Name" required><br><br>
+          Society Address<br><textarea name="address" id="s_address" cols="60" rows="3" required></textarea><br><br>
 
 
-      <label for="country-state">State</label>
-      <select id="s_state" name="country-state" required>
-        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-        <option value="Andhra Pradesh">Andhra Pradesh</option>
-        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-        <option value="Assam">Assam</option>
-        <option value="Bihar">Bihar</option>
-        <option value="Chandigarh">Chandigarh</option>
-        <option value="Chhattisgarh">Chhattisgarh</option>
-        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
-        <option value="Daman and Diu">Daman and Diu</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Goa">Goa</option>
-        <option value="Gujarat">Gujarat</option>
-        <option value="HR">Haryana</option>
-        <option value="HP">Himachal Pradesh</option>
-        <option value="JK">Jammu and Kashmir</option>
-        <option value="JH">Jharkhand</option>
-        <option value="KA">Karnataka</option>
-        <option value="KL">Kerala</option>
-        <option value="LA">Ladakh</option>
-        <option value="LD">Lakshadweep</option>
-        <option value="MP">Madhya Pradesh</option>
-        <option value="MH">Maharashtra</option>
-        <option value="MN">Manipur</option>
-        <option value="ML">Meghalaya</option>
-        <option value="MZ">Mizoram</option>
-        <option value="NL">Nagaland</option>
-        <option value="OR">Odisha</option>
-        <option value="PY">Puducherry</option>
-        <option value="PB">Punjab</option>
-        <option value="RJ">Rajasthan</option>
-        <option value="SK">Sikkim</option>
-        <option value="TN">Tamil Nadu</option>
-        <option value="TG">Telangana</option>
-        <option value="TR">Tripura</option>
-        <option value="UP">Uttar Pradesh</option>
-        <option value="UT">Uttarakhand</option>
-        <option value="WB">West Bengal</option>
-      </select><br><br>
-      District <input type="text" id="s_district" placeholder="District" required><br><br>
-      Pincode <input type="number" id="s_pincode" placeholder="pincode/zipcode"><br><br>
+          <label for="country-state">State</label>
+          <select id="s_state" name="country-state" required>
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+            <option value="Daman and Diu">Daman and Diu</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="HR">Haryana</option>
+            <option value="HP">Himachal Pradesh</option>
+            <option value="JK">Jammu and Kashmir</option>
+            <option value="JH">Jharkhand</option>
+            <option value="KA">Karnataka</option>
+            <option value="KL">Kerala</option>
+            <option value="LA">Ladakh</option>
+            <option value="LD">Lakshadweep</option>
+            <option value="MP">Madhya Pradesh</option>
+            <option value="MH">Maharashtra</option>
+            <option value="MN">Manipur</option>
+            <option value="ML">Meghalaya</option>
+            <option value="MZ">Mizoram</option>
+            <option value="NL">Nagaland</option>
+            <option value="OR">Odisha</option>
+            <option value="PY">Puducherry</option>
+            <option value="PB">Punjab</option>
+            <option value="RJ">Rajasthan</option>
+            <option value="SK">Sikkim</option>
+            <option value="TN">Tamil Nadu</option>
+            <option value="TG">Telangana</option>
+            <option value="TR">Tripura</option>
+            <option value="UP">Uttar Pradesh</option>
+            <option value="UT">Uttarakhand</option>
+            <option value="WB">West Bengal</option>
+          </select><br><br>
+          District <input type="text" id="s_district" placeholder="District" required><br><br>
+          Pincode <input type="number" id="s_pincode" placeholder="pincode/zipcode"><br><br>
 
-      <!-- <label for="ownerdoc">Society Ownership Document </label>
-      <input id="ownerdoc" type="file" name="o_doc" accept=".png,.jpg,.jpeg,.pdf" required><br><br> -->
+          <!-- <label for="ownerdoc">Society Ownership Document </label>
+                <input id="ownerdoc" type="file" name="o_doc" accept=".png,.jpg,.jpeg,.pdf" required><br><br> -->
 
-      <input type="email" id="s_email" placeholder="Society Email" required>
-      <input type="submit" onclick="verifiedSocietyEmail()" value="OTP Generate"><br><br>
-      <input type="text" style="display: none;" maxlength="6" id="otp_email1" required><br>
-      <input type="submit" style="display: none;" id="otp_e1" value="Confirm Email" required><br><br>
+          <input type="email" id="s_email" placeholder="Society Email" required>
+          <input type="submit" onclick="verifiedSocietyEmail()" value="OTP Generate"><br><br>
+          <input type="text" style="display: none;" maxlength="6" id="otp_email1" required><br>
+          <input type="submit" style="display: none;" id="otp_e1" value="Confirm Email" required><br><br>
 
-      Phone No. <input type="tel" id="s_phoneno" placeholder="Society Contact Information" required><br><br>
-
-
-      <label for="s_date">Society Founding Date</label>
-      <input type="date" id="s_date" required><br><br>
+          Phone No. <input type="tel" id="s_phoneno" placeholder="Society Contact Information" required><br><br>
 
 
-      <label for="s_admins">Total Society Administratives</label>
-      <select id="s_admins" required>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select><br><br>
+          <label for="s_date">Society Founding Date</label>
+          <input type="date" id="s_date" required><br><br>
 
-      <button value="socReg">Send Registration Request</button>
-      <button type="reset">Reset Form</button>
-    </center>
-  </form>
+
+          <label for="s_admins">Total Society Administratives</label>
+          <select id="s_admins" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select><br><br>
+
+          <button value="socReg">Send Registration Request</button>
+          <button type="reset">Reset Form</button>
+        </div>
+      </center>
+    </form>
+  </div>
+
+  <div class="container5">
+    <input type="checkbox" id="discription1">
+
+    <label for="discription1"><strong>Agree to the Terms and Conditions and <a href="policy">Privacy
+          Policy</strong></a></label><br><br>
+
+    <input type="checkbox" id="discription"> <label for="discription">I allow my information to be used for future
+      campaigns</label><br><br>
+
+    <input type="submit"
+      style="font-weight: 600; background-color:turquoise; border: solid; width: 150px; border-radius: 30px;"
+      value="Sign up" onclick="pop_up()" class="button1" required><br><br>
+
+    <p><strong>Already Have an Account <a href="login.html" target="_blank">Log in</a> here</strong></p>
+  </div>
+
+
+
+  </div>
 </body>
 
 </html>
