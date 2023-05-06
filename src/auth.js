@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
-import { db } from 'config.js';
+//import { db } from 'config.js';
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
@@ -19,4 +20,30 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 //update firestore settings
-db.settings({ timestampsInSnapshots: true })
+//db.settings({ timestampsInSnapshots: true })
+
+const signup = document.querySelector('#signUpForm');
+signup.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Signed Up Successfully');
+    //get user info
+    const email = signup.email.value;
+    const password = signup.password.value;
+    console.log(email, password);
+    //signup user
+    createUserWithEmailAndPassword(auth, email, password).then(cred => {
+        console.log(cred.user);
+        const modal = document.querySelector('#modal-signup');
+        M.Modal.getInstance(modal).close();
+        signup.reset();
+    });
+});
+
+//logout user
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signOut().then(() => {
+        alert('User Logged out');
+    });
+});
