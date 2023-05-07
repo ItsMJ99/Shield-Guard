@@ -22,29 +22,21 @@ const auth = getAuth(app);
 //update firestore settings
 //db.settings({ timestampsInSnapshots: true })
 
-const signup = document.querySelector('#signUpForm');
-signup.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Signed Up Successfully');
-    //get user info
-    const email = signup.email.value;
-    const password = signup.password.value;
+//login admin
+const adminlogin = document.querySelector('#adminlogin');
+adminlogin.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const email = adminlogin.adminemail.value;
+    const password = adminlogin.adminpassword.value;
     console.log(email, password);
-    //signup user
-    createUserWithEmailAndPassword(auth, email, password).then(cred => {
-        console.log(cred.user);
-        const modal = document.querySelector('#modalSignUp');
-        M.Modal.getInstance(modal).close();
-        signup.reset();
-    });
-});
-
-//logout user
-const logout = document.querySelector('#logout');
-logout.addEventListener('click', (e) => {
-    e.preventDefault();
-    auth.signOut().then(() => {
-        alert('User Logged out');
-    });
-});
-
+    signInWithEmailAndPassword(auth, email, password)
+        .then(cred => {
+            console.log('user logged in = ', cred.user)
+            //const modal=document.querySelector('#adminloginbox');
+            //M.Modal.getInstance(modal).close();
+            adminlogin.reset();
+        })
+        .catch((err) => {
+            console.log(err.message);
+        })
+})

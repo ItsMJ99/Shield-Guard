@@ -8,21 +8,21 @@
   <title>Admin Login</title>
   <link rel="stylesheet" href="../styles/admin-login.css">
   <link rel="icon" href="../images/facicon.jpg">
-  <script src="../src/auth.js"></script>
+  <script type='module' src="../src/admin-auth.js"></script>
 </head>
 
 <body>
-  <div class="loginbox">
+  <div id="adminloginbox">
     <!-- <div class="logo"></div> -->
     <img src="../images/Logo .jpg" class="logo"><br><br>
     <h2>Admin Login</h2>
-    <form>
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Enter your username" required>
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
-      <button type="submit">Login</button><br><br>
-      <a href="forgot.html">Forgot Password/Username </a><br><br>
+    <form id="adminlogin">
+      <label for="adminemail">Email</label>
+      <input type="text" id="adminemail" name="adminemail" placeholder="Enter your email" required>
+      <label for="adminpassword">Password</label>
+      <input type="password" id="adminpassword" name="adminpassword" placeholder="Enter your password" required>
+      <button id="adminloginbtn">Login</button><br><br>
+      <a href="forgot.html">Forgot Password</a><br><br>
     </form>
 </body>
 
