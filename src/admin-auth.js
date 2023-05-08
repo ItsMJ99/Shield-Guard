@@ -1,8 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 //import { db } from 'config.js';
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
     authDomain: "shield-guard-44ecf.firebaseapp.com",
@@ -17,22 +16,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 //auth and firestore references
-const auth = getAuth(app);
+const adminAuth = getAuth(app);
 
-//update firestore settings
-//db.settings({ timestampsInSnapshots: true })
-
-//login admin
+//admin login 
 const adminlogin = document.querySelector('#adminlogin');
 adminlogin.addEventListener('submit', (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const email = adminlogin.adminemail.value;
     const password = adminlogin.adminpassword.value;
     console.log(email, password);
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(adminAuth, email, password)
         .then(cred => {
-            console.log('user logged in = ', cred.user)
-            //const modal=document.querySelector('#adminloginbox');
+            alert('Admin Login Successful !!!');
+            console.log('Admin logged in = ', cred.user)
+            //const modal = document.querySelector('.loginbox');
             //M.Modal.getInstance(modal).close();
             adminlogin.reset();
         })
@@ -40,3 +37,39 @@ adminlogin.addEventListener('submit', (e) => {
             console.log(err.message);
         })
 })
+
+//admin logout
+const logout = document.querySelector('#adminlogout');
+logout.addEventListener('click', (e) => {
+    e.preventDefault();
+    auth.signOut().then(() => {
+        alert('Admin Logged out');
+    });
+});
+
+//admin auth status change
+// adminAuth.onAuthStateChanged(user => {
+//     console.log(user);
+//     if (user) {
+//         alert('user logged in');
+//     }
+//     else {
+//         alert('user logged out');
+//     }
+// })
+
+//used to retrieve a particular record
+db.collection('guides').get().then(snapshot => {
+    setupguide(snapshot.docs);
+})
+// was used in diff index.js file 
+const setupguides = (data) => {
+    var html = '';
+    data.forEach(doc => {
+        const guide = doc.data();
+        console.log(guide)
+        //const li=`<li><div class='collapse'>${guide.title}</div></li>`;//use this to add data to the drop down view which is hidden
+        html += li;
+    })
+    guideList.innerHTML = html;
+}

@@ -17,11 +17,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 //auth and firestore references
-const auth = getAuth(app);
+const userAuth = getAuth(app);
 
 //update firestore settings
 //db.settings({ timestampsInSnapshots: true })
 
+//user register/signup 
 const signup = document.querySelector('#signUpForm');
 signup.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -31,15 +32,35 @@ signup.addEventListener('submit', (e) => {
     const password = signup.password.value;
     console.log(email, password);
     //signup user
-    createUserWithEmailAndPassword(auth, email, password).then(cred => {
+    createUserWithEmailAndPassword(userAuth, email, password).then(cred => {
         console.log(cred.user);
-        const modal = document.querySelector('#modalSignUp');
-        M.Modal.getInstance(modal).close();
+        //const modal = document.querySelector('#modalSignUp');//for popup to close
+        //M.Modal.getInstance(modal).close();
         signup.reset();
     });
 });
 
-//logout user
+//user login 
+const userlogin = document.querySelector('#userlogin');
+userlogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = userlogin.useremail.value;
+    const password = userlogin.userpassword.value;
+    console.log(email, password);
+    signInWithEmailAndPassword(userAuth, email, password)
+        .then(cred => {
+            alert('User Login Successful !!!');
+            console.log('User logged in = ', cred.user)
+            //const modal = document.querySelector('.loginbox');
+            //M.Modal.getInstance(modal).close();
+            userlogin.reset();
+        })
+        .catch((err) => {
+            console.log(err.message);
+        })
+})
+
+//user logout 
 const logout = document.querySelector('#logout');
 logout.addEventListener('click', (e) => {
     e.preventDefault();
