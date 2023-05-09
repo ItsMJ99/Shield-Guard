@@ -52,16 +52,18 @@ logout.addEventListener('click', (e) => {
 //     console.log(user);
 //     if (user) {
 //         alert('user logged in');
+//used to retrieve a particular record, update as per your application
+// db.collection('guides').get().then(snapshot => {
+//     setupguide(snapshot.docs);
+// })
 //     }
 //     else {
 //         alert('user logged out');
+//         setupGuides([]);
 //     }
-// })
+// });
 
-//used to retrieve a particular record
-db.collection('guides').get().then(snapshot => {
-    setupguide(snapshot.docs);
-})
+
 // was used in diff index.js file 
 const setupguides = (data) => {
     var html = '';

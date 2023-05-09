@@ -69,6 +69,7 @@ addSocReq.addEventListener('submit', (e) => {
                         society_admins: addSocReq.s_admins.value
                     })
                         .then(() => {
+                            addSocReq.reset()
                             console.log('File URL stored in Firestore successfully.');
                         })
                         .catch((error) => {
@@ -82,17 +83,6 @@ addSocReq.addEventListener('submit', (e) => {
         .catch((error) => {
             console.error('Error uploading file:', error);
         });
-})
-
-
-
-addSocReq.addEventListener('submit', (e) => {
-    e.preventDefault()
-    addDoc(colRef, {
-        society_document: url,
-    }).then(() => {
-        addSocReq.reset()
-    })
 })
 
 //used to check if the firestore is connected to see data in dev console
