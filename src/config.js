@@ -48,10 +48,11 @@ addSocReq.addEventListener('submit', (e) => {
                         owner_mname: addSocReq.o_mname.value,
                         owner_lname: addSocReq.o_lname.value,
                         owner_email: addSocReq.o_email.value,
+                        owner_phoneno: addSocReq.o_phoneno.value,
                         owner_password: addSocReq.o_password.value,
                         owner_confirm_password: addSocReq.o_confirm_password.value,
-                        owner_phoneno: addSocReq.o_phoneno.value,
                         owner_gender: addSocReq.o_gender.value,
+                        owner_occupation: addSocReq.o_occupation.value,
                         owner_dob: addSocReq.o_dob.value,
                         owner_address: addSocReq.o_address.value,
                         owner_state: addSocReq.o_state.value,
@@ -63,10 +64,10 @@ addSocReq.addEventListener('submit', (e) => {
                         society_district: addSocReq.s_district.value,
                         society_pincode: addSocReq.s_pincode.value,
                         society_document: url,
-                        society_email: addSocReq.s_email.value,
                         society_phoneno: addSocReq.s_phoneno.value,
                         society_FoundingDay: addSocReq.s_date.value,
-                        society_admins: addSocReq.s_admins.value
+                        society_admins: addSocReq.s_admins.value,
+                        society_email: addSocReq.s_email.value
                     })
                         .then(() => {
                             addSocReq.reset()

@@ -104,16 +104,6 @@ h2,h3
 }
 
 
-.header
-{
-
-    height: 95vh;
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../img/wallpaperflare.com_wallpaper.jpg);
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 .navbar
 {
     /* border: 3px solid white; */
@@ -169,26 +159,6 @@ h2,h3
     clear: both;
 }
 
-.header-content
-{
-    margin: 13% 13%;
-    text-align: center;
-    background-color: rgba(255, 228, 196, 0.092);
-}
-
-.header-content h2
-{
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.header-content p
-{
-    text-transform: uppercase;
-    margin-top: 1.5rem;
-    font-size: 1.8rem;
-
-}
 
 /* ############# footer styling ############## */
 .footer
@@ -197,19 +167,18 @@ h2,h3
     color: #f4f4f4;
     align-items: end;
     text-align: center;
-    padding: 3rem;
-    margin-top: 3rem;
-    margin-bottom: 0rem;
+    padding: 2.5rem;
+    margin-top: 2rem;
 }
 
 .social-media-links
 {
-    margin: 2rem;
+    margin: 1.5rem;
 }
 
 .social-media-links i
 {
-    margin: 2rem;
+    margin: 1.5rem;
 }
 
 /* ################## about styling ####################### */
@@ -226,6 +195,7 @@ h2,h3
     width: 100%;
     margin-top: 0.1rem;
     margin-bottom: 1.5rem;
+    border: 3px solid #e63946;
 }
 
 .about-wrapper .left
@@ -244,6 +214,13 @@ h2,h3
 {
     text-align: center;
     margin-top: 2rem;
+    font-size: 4rem;
+}
+
+.about-wrapper li
+{
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .about-wrapper::after
@@ -348,4 +325,130 @@ h2,h3
     content: '';
     display: block;
     clear: both;
+}
+
+
+@media (max-width:500px)
+{
+    html{
+        font-size: 50%;
+    }
+
+    .navbar .nav-items, .navbar .logo
+    {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-heading, .about p
+    {
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .about-wrapper .left, .about-wrapper .right
+    {
+        float: none;
+        width: 100%;
+        align-items: center;
+        display: block;
+    }
+
+    .counts .count-item
+    {
+        float: none;
+        width: 100%;
+        align-items: center;
+        display: block;
+        margin: 3rem 0rem;
+    }
+
+    .banner .banner-left,.banner .banner-right
+    {
+        float: none;
+        align-items: center;
+        display: block;
+    }
+
+    .banner-left
+    {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .banner-right
+    {
+        text-align: none;
+        margin: 0 auto;
+        padding-bottom: 1.5rem;
+    }
+
+    .banner-btn
+    {
+        align-items: center;
+        width: 100%;
+        display: block;
+        font-size: 1.8rem;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+}
+
+@media (min-width:501px) and (max-width:790px)
+{
+    html
+    {
+        font-size: 8px;
+    }
+
+    .navbar .nav-items, .navbar .logo
+    {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-heading, .about p
+    {
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .banner .banner-left,.banner .banner-right
+    {
+        float: none;
+        align-items: center;
+        display: block;
+    }
+
+    .banner-left
+    {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .banner-right
+    {
+        text-align: none;
+        margin: 0 auto;
+        padding-bottom: 1.5rem;
+    }
+
+    .banner-btn
+    {
+        align-items: center;
+        width: 100%;
+        display: block;
+        font-size: 1rem auto;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
 }

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Tables / Data - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../images/facicon.jpg" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    .container {
+      max-width: 80%;
+      margin: 50px auto;
+      margin-left: 0;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 5px;
+
+      outline-offset: 2px;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    #pass {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      box-sizing: border-box;
+      display: none;
+    }
+
+    #pass h2 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+    }
+
+    #pass p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    #pass strong {
+      font-weight: bold;
+      color: #333;
+    }
+
+    #pass img {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">ShieldGuard</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+    <!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+
+
+
+        </li><!-- End Notification Nav -->
+
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Raghav Verma</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Raghav Verma</h6>
+              <span>Security Guard</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <!-- End Dashboard Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Database</span><i
+            class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-data.html">
+              <i class="bi bi-circle"></i><span>Visitor Data</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-data.html">
+              <i class="bi bi-circle"></i><span>Add Visitor</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Tables Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Applications</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="pages-Approval.html">
+              <i class="bi bi-circle"></i><span>Resident Requests</span>
+            </a>
+          </li>
+        </ul>
+        </l>
+        <!-- End Charts Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person"></i><span>Profile</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+          <li>
+            <a href="users-profile.html">
+              <i class="bi bi-gear"></i><span>Account Settings</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+
+      </li>
+      <!-- End Blank Page Nav -->
+
+
+
+      </li>
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1>Guard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">Data</li>
+        </ol>
+      </nav>
+    </div>
+    <!-- End Page Title -->
+
+    <div class="container">
+      <h1>Visitor Pass Generation</h1>
+      <form>
+        <label for="name">Visitor Name:</label>
+
+        <input type="text" id="name" name="name" required>
+        <label for="email">Visitor Mobile</label>
+        <input type="email" id="email" name="email" required>
+        <label for="emal">Resident Name:</label>
+        <input type="emal" id="emal" name="emal" required>
+        <label for="date">Visit Date:</label>
+        <input type="date" id="date" name="date" required>
+        <label for="time">Visit Time:</label>
+        <input type="time" id="time" name="time" required>
+        <p id="phone">Enter Resident contact number : <input type="tel" id="tel" placeholder="10 digit mobile number"
+            style="font-family:cursive;"></input></p>
+        <style>
+          .placeholdee {
+            border: 3px solid black;
+            font-size: 20px;
+            padding: 10px;
+            display: inline block;
+          }
+        </style>
+
+        <button onclick="functionToExecute()">Send OTP</button>
+        <br><br>
+
+        <label for="date1">Enter OTP:</label>
+        <input type="date1" id="date1" name="date1" required>
+        <button type="submit">Generate Pass</button>
+
+      </form>
+      <!doctype html>
+
+      <head>
+        <style>
+          /* CSS comes here */
+          #video {
+            border: 1px solid black;
+            width: 320px;
+            height: 240px;
+          }
+
+          #photo {
+            border: 1px solid rgb(165, 143, 143);
+            width: 320px;
+            height: 240px;
+          }
+
+          #canvas {
+            display: none;
+          }
+
+          .camera {
+            width: 340px;
+            display: inline-block;
+          }
+
+          .output {
+            width: 340px;
+            display: inline-block;
+          }
+
+          #startbutton {
+            display: block;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            bottom: 36px;
+            padding: 5px;
+            background-color: #6a67ce;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 1.0);
+            cursor: pointer;
+          }
+
+          .contentarea {
+            font-size: 16px;
+            font-family: Arial;
+            text-align: center;
+          }
+        </style>
+        <title>My Favorite Sport</title>
+      </head>
+
+      <body>
+        <div class="contentarea">
+          <h1>
+            Capture a Photo
+          </h1>
+          <div class="camera">
+            <video id="video">Video stream not available.</video>
+          </div>
+          <div><button id="startbutton">Take photo</button></div>
+          <canvas id="canvas"></canvas>
+          <div class="output">
+            <img id="photo" alt="The screen capture will appear in this box.">
+          </div>
+        </div>
+
+        <script>
+          /* JS comes here */
+          (function () {
+
+            var width = 320; // We will scale the photo width to this
+            var height = 0; // This will be computed based on the input stream
+
+            var streaming = false;
+
+            var video = null;
+            var canvas = null;
+            var photo = null;
+            var startbutton = null;
+
+            function startup() {
+              video = document.getElementById('video');
+              canvas = document.getElementById('canvas');
+              photo = document.getElementById('photo');
+              startbutton = document.getElementById('startbutton');
+
+              navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: false
+              })
+                .then(function (stream) {
+                  video.srcObject = stream;
+                  video.play();
+                })
+                .catch(function (err) {
+                  console.log("An error occurred: " + err);
+                });
+
+              video.addEventListener('canplay', function (ev) {
+                if (!streaming) {
+                  height = video.videoHeight / (video.videoWidth / width);
+
+                  if (isNaN(height)) {
+                    height = width / (4 / 3);
+                  }
+
+                  video.setAttribute('width', width);
+                  video.setAttribute('height', height);
+                  canvas.setAttribute('width', width);
+                  canvas.setAttribute('height', height);
+                  streaming = true;
+                }
+              }, false);
+
+              startbutton.addEventListener('click', function (ev) {
+                takepicture();
+                ev.preventDefault();
+              }, false);
+
+              clearphoto();
+            }
+
+
+            function clearphoto() {
+              var context = canvas.getContext('2d');
+              context.fillStyle = "#AAA";
+              context.fillRect(0, 0, canvas.width, canvas.height);
+
+              var data = canvas.toDataURL('image/png');
+              photo.setAttribute('src', data);
+            }
+
+            function takepicture() {
+              var context = canvas.getContext('2d');
+              if (width && height) {
+                canvas.width = width;
+                canvas.height = height;
+                context.drawImage(video, 0, 0, width, height);
+
+                var data = canvas.toDataURL('image/png');
+                photo.setAttribute('src', data);
+              } else {
+                clearphoto();
+              }
+            }
+
+            window.addEventListener('load', startup, false);
+          })();
+        </script>
+      </body>
+
+</html>
+
+<div id="pass">
+  <h2>Visitor Pass</h2>
+  <p>
+    <strong< /p>
+</div>
+</div>
+
+
+<!-- Section: Design Block -->
+
+
+</div>
+
+</main>
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span>Shield Guard</span></strong>. All Rights are Reserved
+  </div>
+
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.min.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
