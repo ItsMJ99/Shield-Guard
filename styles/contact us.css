@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Rubik&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,15 +9,13 @@
 
 /* ################### HTML element styling ####################### */
 
-html
-{
+html {
     font-size: 60%;
     height: 100%;
     box-sizing: border-box;
 }
 
-body
-{
+body {
     font-family: 'Montserrat', sans-serif;
     position: relative;
     margin: 0;
@@ -26,152 +24,135 @@ body
     box-sizing: inherit;
 }
 
-ul li
-{
+ul li {
     list-style: none;
 }
 
-a{
+a {
     font-size: 1.6rem;
     text-decoration: none;
 }
 
-p,li
-{
+p,
+li {
     font-size: 1.6rem;
     font-weight: 500;
     margin-bottom: 0.5em;
     letter-spacing: 0.08em;
 }
 
-p
-{
+p {
     font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 0.5em;
     letter-spacing: 0.08em;
 }
 
-h1,h2,h3
-{
+h1,
+h2,
+h3 {
     margin-bottom: 0.1em;
     letter-spacing: 0.15em;
     font-weight: 600;
 }
 
-h2,h3
-{
+h2,
+h3 {
     margin-bottom: 0.1em;
     letter-spacing: 0.1em;
     word-spacing: 1.1rem;
     font-weight: 600;
 }
+
 /* #################### utility classes ################ */
 
-.container
-{
+.container {
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
 }
 
-.lg-heading
-{
+.lg-heading {
     font-size: 3.5rem;
 }
 
-.md-heading
-{
+.md-heading {
     font-size: 2.2rem;
     font-weight: 500;
 }
 
-.text-red
-{
+.text-red {
     color: #e63946;
 }
 
-.text-light
-{
+.text-light {
     color: #000000;
 }
 
-.text-black
-{
+.text-black {
     color: #333;
 }
 
-.text-gray
-{
+.text-gray {
     color: #555555;
 }
 
-.bg-dark
-{
-    background-color:#263238 ;
+.bg-dark {
+    background-color: #263238;
 }
 
 
-.header
-{
+.header {
 
     height: 95vh;
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../img/wallpaperflare.com_wallpaper.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img/wallpaperflare.com_wallpaper.jpg);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.navbar
-{
+.navbar {
     /* border: 3px solid white; */
     padding: 2rem;
 }
 
-.logo, .header .navbar a
-{
+.logo,
+.header .navbar a {
     display: inline;
     color: rgb(255, 255, 255);
 }
 
-.navbar .logo
-{
+.navbar .logo {
     margin: 0.5rem;
-    float: left; 
+    float: left;
     font-size: 3.5rem;
 }
 
-.navbar .nav-items
-{
-    float: right; 
+.navbar .nav-items {
+    float: right;
     margin-top: 1rem;
 }
 
-.navbar .nav-item
-{
+.navbar .nav-item {
     display: inline-block;
     padding: 1rem;
     text-transform: uppercase;
 }
 
 .navbar a:link,
-.navbar a:visited
-{
-    color: rgb(255, 255, 255) ;
+.navbar a:visited {
+    color: rgb(255, 255, 255);
 }
 
-.navbar  a:hover
-{
+.navbar a:hover {
     border-bottom: 2.2px solid #ffffff;
 }
 
-.navbar a
-{
+.navbar a {
     padding-bottom: 0.2rem;
 }
 
-.navbar::after
-{
+.navbar::after {
     content: '';
     display: block;
     clear: both;
@@ -179,8 +160,7 @@ h2,h3
 
 
 /* ############# footer styling ############## */
-.footer
-{
+.footer {
     background: #263238;
     color: #f4f4f4;
     align-items: end;
@@ -193,21 +173,18 @@ h2,h3
     bottom: 0;
 }
 
-.social-media-links i
-{
+.social-media-links i {
     margin: 2rem;
 }
 
 /* ####################### Contact Page Style ###################### */
 
-.contact-form
-{
+.contact-form {
     padding: 5rem 0rem;
-    background:  #f7f7f7;
+    background: #f7f7f7;
 }
 
-.form-wrapper .company-details
-{
+.form-wrapper .company-details {
     width: 49%;
     float: left;
     background: #fff;
@@ -216,46 +193,40 @@ h2,h3
 }
 
 
-.form-wrapper .company-details i
-{
+.form-wrapper .company-details i {
     display: inline-block;
     margin-right: 1rem;
 }
 
-.form-wrapper .company-details h2
-{
+.form-wrapper .company-details h2 {
     display: inline-block;
     margin-right: 1rem;
     text-transform: uppercase;
 }
 
-.form-wrapper .company-details p
-{
+.form-wrapper .company-details p {
     padding: 1rem;
 }
 
-.form-wrapper .address-group
-{
+.form-wrapper .address-group {
     margin-bottom: 3rem;
 }
 
-.form-wrapper .company-details img
-{
+.form-wrapper .company-details img {
     max-width: 90%;
     min-height: 25rem;
     object-fit: cover;
 }
 
-.form-wrapper::after
-{   
+.form-wrapper::after {
     content: '';
     display: block;
     clear: both;
 }
+
 /* #################### Form Styling ######################3 */
 
-.form-wrapper .form
-{
+.form-wrapper .form {
     width: 49%;
     float: right;
     background: #fff;
@@ -264,8 +235,7 @@ h2,h3
     height: 760px;
 }
 
-.form h1::after
-{
+.form h1::after {
     content: '';
     display: block;
     width: 100%;
@@ -274,7 +244,7 @@ h2,h3
 
 
 
-:focus{
+:focus {
     color: #212529;
     background-color: #fff;
     border-color: #86b7fe;
@@ -282,13 +252,11 @@ h2,h3
     box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 
-.form-wrapper .form label
-{
+.form-wrapper .form label {
     display: block;
 }
 
-.form-wrapper .form input
-{
+.form-wrapper .form input {
     width: 100%;
     padding: 6px 12px;
     font-size: 16px;
@@ -300,28 +268,25 @@ h2,h3
     border: 1px solid #ced4da;
     appearance: none;
     border-radius: 4px;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.form-wrapper .form .form-group
-{
+.form-wrapper .form .form-group {
     margin-bottom: 1.2rem;
 }
 
-.form-wrapper .form label::after
-{
+.form-wrapper .form label::after {
     content: '*';
     color: #e63946;
 }
 
-.form-wrapper .form textarea
-{
+.form-wrapper .form textarea {
     width: 100%;
     height: 300px;
+    font-size: 18px;
 }
 
-.form-wrapper .form .form-btn
-{
+.form-wrapper .form .form-btn {
     display: block;
     margin: 0 auto;
     padding: 0.5em 0.3em;
@@ -334,44 +299,41 @@ h2,h3
     cursor: pointer;
 }
 
-@media (max-width:500px)
-{
-    html{
+@media (max-width:500px) {
+    html {
         font-size: 50%;
     }
 
-    .navbar .nav-items, .navbar .logo
-    {
+    .navbar .nav-items,
+    .navbar .logo {
         float: none;
         display: block;
         width: 100%;
         text-align: center;
     }
 
-    .form-wrapper .company-details, .form-wrapper .form
-    {
+    .form-wrapper .company-details,
+    .form-wrapper .form {
         float: none;
         width: 100%;
         align-items: center;
         display: block;
     }
 
-    .form-wrapper .company-details img
-    {
+    .form-wrapper .company-details img {
         height: auto;
         width: 100%;
-        margin: 0 ;
+        margin: 0;
     }
 }
 
-@media (min-width:501px) and (max-width:790px)
-{
-    html{
+@media (min-width:501px) and (max-width:790px) {
+    html {
         font-size: 50%;
     }
 
-    .navbar .nav-items, .navbar .logo
-    {
+    .navbar .nav-items,
+    .navbar .logo {
         float: none;
         display: block;
         width: 100%;
