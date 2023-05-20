@@ -180,10 +180,6 @@ h2,h3
     bottom: 0;
 }
 
-.social-media-links
-{
-    margin: 1.5rem;
-}
 
 .social-media-links i
 {           
@@ -194,12 +190,12 @@ h2,h3
 
 .login-group
 {
-    padding: 3rem 0rem;
+    padding: 3.5rem 0rem;
 }
 
 .login-wrapper
 {
-    box-shadow: 5px 5px 20px 0px #00000085;
+    box-shadow: 5px 5px 20px 0px #00000056;
     background-color: #c4e0e5;
     border-radius: 20px;
 }
@@ -291,7 +287,7 @@ h2,h3
     border-radius: 20px;
     background-color: #c4e0e5;
     padding: 1rem;
-    box-shadow: 5px 5px 20px 0px #00000085;
+    box-shadow: 5px 5px 20px 0px #00000056;
 }
 
 .left-paragraph
