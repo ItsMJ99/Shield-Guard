@@ -231,7 +231,7 @@ h3 {
 .container form {
     position: relative;
     margin-top: 16px;
-    min-height: 550px;
+    min-height: 800px;
     overflow-x: hidden;
     overflow-y: visible;
 }
