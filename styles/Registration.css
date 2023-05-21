@@ -303,9 +303,49 @@ form .fields .input-field {
 
 .input-field label {
     font-size: 13px;
-    font-weight: 550;
+    font-weight: 400;
     color: #2e2e2e;
 }
+
+.input-field .showpass .left-p
+{
+    float: left;
+    width: 65%;
+}
+
+.input-field .showpass .right-p
+{
+    float: right;
+    width: 35%;
+}
+
+.input-field .showpass .left-p input
+{
+    /* width: 50%; */
+}
+
+.input-field .showpass input[type="checkbox"]
+{
+    width: 16px;
+    margin-top: 2.5rem;
+}
+
+.input-field .showpass .left
+{
+    float: left;
+    margin: 0;
+    text-align: center;
+    padding-left: 0.2rem;
+    padding-right: 0.1rem;
+}
+
+.input-field .showpass .right
+{
+    float: left;
+    text-align: center;
+    margin-top: 2.2rem;
+}
+
 
 .input-field input,
 select {
