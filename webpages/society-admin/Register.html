@@ -36,8 +36,10 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/Registration.css">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -45,7 +47,7 @@
   <!-- Script file -->
   <script src="https://kit.fontawesome.com/ca70c1521e.js" crossorigin="anonymous"></script>
   <link rel="script" href="assets/js/script.js">
-
+  <script type="module" src="../../src/soc-admin-logout.js"></script>
   <script>
     function verifiedOwnerEmail() {
       alert("OTP successfully sent on your Email")
@@ -69,7 +71,6 @@
     }
   </script>
   <style>
-    
     .scroll {
 
       height: 100%;
@@ -322,13 +323,14 @@
           <span>Dashboard</span>
         </a>
       </li>
-      
+
       <!-- End Dashboard Nav -->
 
-  
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Database</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Database</span><i
+            class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -343,7 +345,7 @@
           </li>
         </ul>
       </li>
-<!-- End Tables Nav -->
+      <!-- End Tables Nav -->
 
 
       <li class="nav-item">
@@ -364,7 +366,7 @@
           <i class="bi bi-person"></i><span>Profile</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-         
+
           <li>
             <a href="users-profile.html">
               <i class="bi bi-gear"></i><span>Account Settings</span>
@@ -376,9 +378,9 @@
 
 
       <li class="nav-heading">Quick Links</li>
-      
 
-      <li class="nav-item"> 
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#">
           <i class="bi bi-instagram"></i>
           <span>Instagram</span>
@@ -401,10 +403,10 @@
 
       <li class="nav-heading">Quick Links</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <!-- Add the class and ID to the anchor tag -->
+        <a id='soc-admin-logout' class="nav-link collapsed" href="#">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>Logout</span>
-        </a>
+          Logout</a>
       </li>
 
     </ul>
@@ -415,136 +417,141 @@
     <div class="container">
       <header>Member Registration</header>
       <form action="#">
-        
+
         <div class="form first">
 
           <div class="details personal">
-              
-              <span class="title" id="dd">Member Details</span>
 
-                <div class="fields">
+            <span class="title" id="dd">Member Details</span>
 
-                  <div class="input-field">
-                    <label for="o_fname">First Name</label>
-                    <input type="text" id="o_fname" placeholder="First Name" class="box box1" required>
-                  </div>
+            <div class="fields">
 
-                  <div class="input-field">
-                    <label for="o_mname">Middle Name</label>
-                    <input type="text" id="o_mname" placeholder="Middle Name" class="box box2" required>
-                  </div>
-                  
-                  <div class="input-field">
-                    <label for="o_lname">Last Name</label>
-                    <input type="text" id="o_lname" placeholder="Last Name" class="box box3" required>
-                  </div>
-                          
-                  
-                  <div class="input-field">
-                    <label for="o_email">Email</label>
-                    <input type="email" id="o_email" placeholder="Your Email" required>
-                    <input type="submit" onclick="verifiedOwnerEmail()" value="Generate OTP " required>
+              <div class="input-field">
+                <label for="o_fname">First Name</label>
+                <input type="text" id="o_fname" placeholder="First Name" class="box box1" required>
+              </div>
 
-                    <input type="text" style="display: none;" maxlength="6" id="otp_email" required>
-                    <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required>
+              <div class="input-field">
+                <label for="o_mname">Middle Name</label>
+                <input type="text" id="o_mname" placeholder="Middle Name" class="box box2" required>
+              </div>
 
-                  </div>
+              <div class="input-field">
+                <label for="o_lname">Last Name</label>
+                <input type="text" id="o_lname" placeholder="Last Name" class="box box3" required>
+              </div>
 
-                  <div class="input-field">
-                    <label for="o_phoneno">Phone No</label>
-                    <input type="tel" id="o_phoneno" placeholder="Your Phone No" required>
-                    <input type="submit" onclick="verifiedPhoneNo()" value="Generate OTP" required>
-                    <input type="text" style="display:none;" maxlength="6" id="ver1" required>
-                    <input type="submit" style="display:none;" id="ver2" value="Confirm Phone No" required>
-                  </div>
 
-                  <div class="input-field">
-                    <label for="o_password">Password</label>
-                    <input type="password" id="o_password" placeholder="Password" required>
-                    <input type="password" id="o_confirm_password" placeholder="Confirm Password" required>
+              <div class="input-field">
+                <label for="o_email">Email</label>
+                <input type="email" id="o_email" placeholder="Your Email" required>
+                <input type="submit" onclick="verifiedOwnerEmail()" value="Generate OTP " required>
 
-                  </div>
+                <input type="text" style="display: none;" maxlength="6" id="otp_email" required>
+                <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required>
 
-                  <div class="input-field">
-                    <label>Gender</label>
-                      <select required>
-                        <option disabled selected>Select Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Others</option>
-                      </select>
-                  </div>
+              </div>
 
-                  <div class="input-field">
-                    <label>Occupation</label>
-                    <input type="text" placeholder="Enter your ccupation" required>
-                  </div>
+              <div class="input-field">
+                <label for="o_phoneno">Phone No</label>
+                <input type="tel" id="o_phoneno" placeholder="Your Phone No" required>
+                <input type="submit" onclick="verifiedPhoneNo()" value="Generate OTP" required>
+                <input type="text" style="display:none;" maxlength="6" id="ver1" required>
+                <input type="submit" style="display:none;" id="ver2" value="Confirm Phone No" required>
+              </div>
 
-                  <div class="input-field">
-                    <label for="o_dob">Date of Birth :</label>
-                    <input type="date" id="o_dob" required>
-                  </div>
-                  
-                </div>
-                
+              <div class="input-field">
+                <label for="o_password">Password</label>
+                <input type="password" id="o_password" placeholder="Password" required>
+                <input type="password" id="o_confirm_password" placeholder="Confirm Password" required>
+
+              </div>
+
+              <div class="input-field">
+                <label>Gender</label>
+                <select required>
+                  <option disabled selected>Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Others</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Occupation</label>
+                <input type="text" placeholder="Enter your ccupation" required>
+              </div>
+
+              <div class="input-field">
+                <label for="o_dob">Date of Birth :</label>
+                <input type="date" id="o_dob" required>
+              </div>
+
             </div>
 
-            
-            <div class="details ID">
-
-              <span class="title">Address Details</span>
-
-                <div class="fields">
-
-                  <div class="input-field">
-                    <label>Permanent Address</label>
-                    <input type="text" placeholder="Enter your Address" required>
-                  </div>
+          </div>
 
 
-                
-                  <div class="input-field">
-                    <label>District</label>
-                    <input type="text" id="o_district" placeholder="District" required>
-                  </div>
+          <div class="details ID">
 
-                  <div class="input-field">
-                    <label>Pincode</label>
-                    <input type="number" id="o_pincode" placeholder="pincode/zipcode" required>
-                  </div>
-               
-                </div>
-              </div>
+            <span class="title">Address Details</span>
 
-        
-              <div class="details family">
-                <span class="title"> Document</span>
-                <div class="fields" >
-                    
-                  <div class="input-field">
-                    <label for="ownerdoc"> Idendity Document</label>
-                    <input id="ownerdoc" type="file" name="o_doc" accept=".png,.jpg,.jpeg,.pdf" required>
-                  </div>
+            <div class="fields">
 
-
-                </div>
-
+              <div class="input-field">
+                <label>Permanent Address</label>
+                <input type="text" placeholder="Enter your Address" required>
               </div>
 
 
-              <div class="foot">
-                <input type="checkbox" id="discription1">
-        
-                <label for="discription1"><strong>Agree to the Terms and Conditions and <a href="policy">Privacy Policy</strong></a></label><br><br>
-        
-                <input type="checkbox" id="discription"> <label for="discription">I allow my information to be used for future campaigns</label>
-                <div class="butt">
-                  <button style="font-weight: 600;background-color:turquoise; border: solid; border-radius: 30px;" value="Sign up" onclick="pop_up()" class="button1">Submit</button>
-        
-                  <button type="reset" style="font-weight: 600; background-color:turquoise; border: solid;border-radius: 30px;" class="button1">Reset Form</button>
-                </div>
 
-          </div>  
+              <div class="input-field">
+                <label>District</label>
+                <input type="text" id="o_district" placeholder="District" required>
+              </div>
+
+              <div class="input-field">
+                <label>Pincode</label>
+                <input type="number" id="o_pincode" placeholder="pincode/zipcode" required>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="details family">
+            <span class="title"> Document</span>
+            <div class="fields">
+
+              <div class="input-field">
+                <label for="ownerdoc"> Idendity Document</label>
+                <input id="ownerdoc" type="file" name="o_doc" accept=".png,.jpg,.jpeg,.pdf" required>
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+          <div class="foot">
+            <input type="checkbox" id="discription1">
+
+            <label for="discription1"><strong>Agree to the Terms and Conditions and <a href="policy">Privacy
+                  Policy</strong></a></label><br><br>
+
+            <input type="checkbox" id="discription"> <label for="discription">I allow my information to be used for
+              future campaigns</label>
+            <div class="butt">
+              <button style="font-weight: 600;background-color:turquoise; border: solid; border-radius: 30px;"
+                value="Sign up" onclick="pop_up()" class="button1">Submit</button>
+
+              <button type="reset"
+                style="font-weight: 600; background-color:turquoise; border: solid;border-radius: 30px;"
+                class="button1">Reset Form</button>
+            </div>
+
+          </div>
       </form>
     </div>
   </main>

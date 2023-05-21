@@ -5,17 +5,21 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tables / Data - NiceAdmin Bootstrap Template</title>
+  <title>ShiedGuard/Add Visitor</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="icon" href="assets/img/facicon.jpg">
 
   <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,98 +32,8 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-	<style>
-
-
-		.container {
-			max-width: 80%;
-			margin: 50px auto;
-      margin-left: 0;
-			padding: 20px;
-			background-color: #fff;
-			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-			border-radius: 5px;
-			box-sizing: border-box;
-		}
-
-		h1 {
-			text-align: center;
-			margin-top: 0;
-			color: #333;
-		}
-
-		form {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 30px;
-		}
-
-		label {
-			font-size: 18px;
-			font-weight: bold;
-			margin-bottom: 10px;
-			color: #555;
-		}
-
-		input {
-			padding: 10px;
-			border-radius: 5px;
-			
-      outline-offset: 2px;
-			margin-bottom: 20px;
-			width: 100%;
-			box-sizing: border-box;
-		}
-
-		button {
-			background-color: #333;
-			color: white;
-			padding: 10px 20px;
-			border:none;
-			border-radius: 5px;
-			cursor: pointer;
-			font-size: 18px;
-			transition: background-color 0.2s;
-		}
-
-		button:hover {
-			background-color: #555;
-		}
-
-		#pass {
-			margin-top: 30px;
-			padding: 20px;
-			background-color: white;
-			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-			border-radius: 5px;
-			box-sizing: border-box;
-			display: none;
-		}
-
-		#pass h2 {
-			margin-top: 0;
-			color: #333;
-			text-align: center;
-		}
-
-		#pass p {
-			font-size: 18px;
-			margin-bottom: 20px;
-			color: #555;
-		}
-
-		#pass strong {
-			font-weight: bold;
-			color: #333;
-		}
-
-		#pass img {
-			max-width: 200px;
-			margin-bottom: 20px;
-		}
-	</style>
-
+  <link href="assets/css/Registration.css" rel="stylesheet">
+  <script type="module" src="../../src/resident-logout.js"></script>
 </head>
 
 <body>
@@ -129,7 +43,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+        <i class="fa-sharp fa-solid fa-building-shield fa-2x"></i>&nbsp;
         <span class="d-none d-lg-block">ShieldGuard</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -154,7 +68,7 @@
 
         <li class="nav-item dropdown">
 
-          
+
 
 
         </li><!-- End Notification Nav -->
@@ -197,7 +111,7 @@
             </li>
 
             <li>
-             
+
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -229,13 +143,14 @@
           <span>Dashboard</span>
         </a>
       </li>
-      
+
       <!-- End Dashboard Nav -->
 
-  
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Database</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Database</span><i
+            class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -250,27 +165,27 @@
           </li>
         </ul>
       </li>
-<!-- End Tables Nav -->
+      <!-- End Tables Nav -->
 
-     
-      
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="pages-Approval.html">
-              <i class="bi bi-circle"></i><span>Resident Requests</span>
-            </a>
-          </li>
-        </ul>
+
+
+      <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="pages-Approval.html">
+            <i class="bi bi-circle"></i><span>Resident Requests</span>
+          </a>
+        </li>
+      </ul>
       </l>
       <!-- End Charts Nav -->
 
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-person"></i><span>Profile</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-         
+
           <li>
             <a href="users-profile.html">
               <i class="bi bi-gear"></i><span>Account Settings</span>
@@ -279,96 +194,116 @@
         </ul>
       </li><!-- End Components Nav -->
 
+      <li class="nav-heading">Quick Links</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <!-- Add the class and ID to the anchor tag -->
+        <a id='res-logout' class="nav-link collapsed" href="#">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>Logout</span>
-        </a>
+          Logout</a>
       </li>
 
       <li class="nav-item">
-        
+
       </li>
       <!-- End Blank Page Nav -->
 
-      
-    
+
+
       </li>
 
     </ul>
 
   </aside><!-- End Sidebar-->
-
-<main id="main" class="main">
-    <div class="pagetitle">
-      <h1>Resident</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Data</li>
-        </ol>
-      </nav>
-    </div>
-    <!-- End Page Title -->
-
+  <main id="main" class="main">
     <div class="container">
-      <h1>Add Visitor</h1>
-      <form>
-        <label for="name">Visitor Name:</label>
+      <header>Visitor Registration</header>
+      <form action="#">
 
-        <input type="text" id="name" name="name" required>
-        <label for="email">Visitor Mobile</label>
-        <input type="email" id="email" name="email" required>
-        <label for="emal">Visitor city:</label>
-        <input type="emal" id="emal" name="emal" required>
-        <label for="date">Visit Date:</label>
-        <input type="date" id="date" name="date" required>
-        <label for="time">Visit Time:</label>
-        <input type="time" id="time" name="time" required>
-        <p id="phone">Enter Resident contact number : <input type="tel"
-          id="tel" placeholder="10 digit mobile number" style="font-family:cursive;"></input></p>
-          <style>
-            .placeholdee{
-              border:3px solid black;
-              font-size: 20px;
-              padding: 10px;
-              display: inline block;
-            }
+        <div class="form first">
+
+          <div class="details personal">
+
+            <span class="title" id="dd">Vistor Details</span>
+
+            <div class="fields">
+
+              <div class="input-field">
+                <label for="o_fname">First Name</label>
+                <input type="text" id="o_fname" placeholder="First Name" class="box box1" required>
+              </div>
+
+              <div class="input-field">
+                <label for="o_mname">Middle Name</label>
+                <input type="text" id="o_mname" placeholder="Middle Name" class="box box2" required>
+              </div>
+
+              <div class="input-field">
+                <label for="o_lname">Last Name</label>
+                <input type="text" id="o_lname" placeholder="Last Name" class="box box3" required>
+              </div>
 
 
-          </style>
-              
-        <button onclick="functionToExecute()">Send OTP</button>
-        <br><br>
-        
-        
+              <div class="input-field">
+                <label for="o_email">Email</label>
+                <input type="email" id="o_email" placeholder="Your Email" required>
+                <input type="submit" onclick="verifiedOwnerEmail()" value="Generate OTP " required>
+
+                <input type="text" style="display: none;" maxlength="6" id="otp_email" required>
+                <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required>
+
+              </div>
+
+              <div class="input-field">
+                <label for="o_phoneno">Phone No</label>
+                <input type="tel" id="o_phoneno" placeholder="Your Phone No" required>
+                <input type="submit" onclick="verifiedPhoneNo()" value="Generate OTP" required>
+                <input type="text" style="display:none;" maxlength="6" id="ver1" required>
+                <input type="submit" style="display:none;" id="ver2" value="Confirm Phone No" required>
+              </div>
+
+              <div class="input-field">
+                <label for="o_password">Password</label>
+                <input type="password" id="o_password" placeholder="Password" required>
+                <input type="password" id="o_confirm_password" placeholder="Confirm Password" required>
+
+              </div>
+
+              <div class="input-field">
+                <label>Gender</label>
+                <select required>
+                  <option disabled selected>Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Others</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="foot">
+
+            <div class="butt">
+              <button style="font-weight: 600;background-color:turquoise; border: solid; border-radius: 30px;"
+                value="Sign up" onclick="pop_up()" class="button1">Submit</button>
+            </div>
+          </div>
       </form>
-  
-      <div id="pass">
-        <h2>Visitor Pass</h2>
-        <p><strong</p>
-      </div>
     </div>
-
-
-<!-- Section: Design Block -->
-        
-        
-     </div>
-
   </main>
-  <!-- End #main -->
+
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Shield  Guard</span></strong>. All Rights are Reserved
+      &copy; Copyright <strong><span>Shield Guard</span></strong>. All Rights are Reserved
     </div>
 
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

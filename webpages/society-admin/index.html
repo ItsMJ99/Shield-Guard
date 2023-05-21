@@ -12,10 +12,14 @@
   <!-- Favicons -->
   <link rel="icon" href="assets/img/facicon.jpg">
 
-  <!-- Google Fonts --> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +32,7 @@
 
   <!--  Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+  <script type="module" src="../../src/soc-admin-logout.js"></script>
 </head>
 
 <body>
@@ -273,13 +277,14 @@
           <span>Dashboard</span>
         </a>
       </li>
-      
+
       <!-- End Dashboard Nav -->
 
-  
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Database</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Database</span><i
+            class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -294,7 +299,7 @@
           </li>
         </ul>
       </li>
-<!-- End Tables Nav -->
+      <!-- End Tables Nav -->
 
 
       <li class="nav-item">
@@ -315,7 +320,7 @@
           <i class="bi bi-person"></i><span>Profile</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-         
+
           <li>
             <a href="users-profile.html">
               <i class="bi bi-gear"></i><span>Account Settings</span>
@@ -327,9 +332,9 @@
 
 
       <li class="nav-heading">Quick Links</li>
-      
 
-      <li class="nav-item"> 
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#">
           <i class="bi bi-instagram"></i>
           <span>Instagram</span>
@@ -352,19 +357,19 @@
 
       <li class="nav-heading">Quick Links</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <!-- Add the class and ID to the anchor tag -->
+        <a id='soc-admin-logout' class="nav-link collapsed" href="#">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>Logout</span>
-        </a>
+          Logout</a>
       </li>
 
     </ul>
 
   </aside><!-- End Sidebar-->
 
-  
+
   <main id="main" class="main">
-    
+
     <div class="pagetitle">
       <h1>Dashboard</h1>
       <nav>
@@ -375,23 +380,27 @@
       </nav>
     </div><!-- End Page Title -->
     <div class="card">
-    <div class="main-body">
-      <div class="promo_card">
-        <input type="checkbox" id="check"> 
-        <div class="cont1">
-        <h1><b>Welcome to Shield Gaurd</b></h1></div>
-        <p>Shield Guard applications are designed to simplify the process of managing visitors in a society, including delivery persons, maids, relatives, and other types of visitors.</p>
-        <div class="content">
-        <p>
-          By using a Shield Guard application, societies can improve security, streamline the check-in process, and provide a better experience for their visitors. It can help societies keep track of who is in the society at any given time and ensure that only authorized visitors are allowed in
-        </p>
+      <div class="main-body">
+        <div class="promo_card">
+          <input type="checkbox" id="check">
+          <div class="cont1">
+            <h1><b>Welcome to Shield Gaurd</b></h1>
+          </div>
+          <p>Shield Guard applications are designed to simplify the process of managing visitors in a society, including
+            delivery persons, maids, relatives, and other types of visitors.</p>
+          <div class="content">
+            <p>
+              By using a Shield Guard application, societies can improve security, streamline the check-in process, and
+              provide a better experience for their visitors. It can help societies keep track of who is in the society
+              at any given time and ensure that only authorized visitors are allowed in
+            </p>
+          </div>
+
+          <label for="check">Read More</label>
+
         </div>
-
-        <label for="check">Read More</label>
-
       </div>
     </div>
-  </div>
     <section class="section dashboard">
       <div class="row">
 
@@ -475,7 +484,7 @@
               </div>
             </div><!-- End Recent Sales -->
 
-            
+
 
           </div>
         </div><!-- End Left side columns -->
@@ -494,58 +503,58 @@
                 <li><a class="dropdown-item" href="#">This Month</a></li>
                 <li><a class="dropdown-item" href="#">This Year</a></li>
               </ul>
-            </div>          
-
-          <!-- Website Traffic -->
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
             </div>
 
-            <div class="card-body pb-0">
-              <h5 class="card-title">Status <span>| Today</span></h5>
+            <!-- Website Traffic -->
+            <div class="card">
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
 
-              <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
 
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  echarts.init(document.querySelector("#trafficChart")).setOption({
-                    tooltip: {
-                      trigger: 'item'
-                    },
-                    legend: {
-                      top: '5%',
-                      left: 'center'
-                    },
-                    series: [{
-                      name: 'Access From',
-                      type: 'pie',
-                      radius: ['40%', '70%'],
-                      avoidLabelOverlap: false,
-                      label: {
-                        show: false,
-                        position: 'center'
+              <div class="card-body pb-0">
+                <h5 class="card-title">Status <span>| Today</span></h5>
+
+                <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
+
+                <script>
+                  document.addEventListener("DOMContentLoaded", () => {
+                    echarts.init(document.querySelector("#trafficChart")).setOption({
+                      tooltip: {
+                        trigger: 'item'
                       },
-                      emphasis: {
+                      legend: {
+                        top: '5%',
+                        left: 'center'
+                      },
+                      series: [{
+                        name: 'Access From',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
                         label: {
-                          show: true,
-                          fontSize: '18',
-                          fontWeight: 'bold'
-                        }
-                      },
-                      labelLine: {
-                        show: false
-                      },
-                      data: [{
+                          show: false,
+                          position: 'center'
+                        },
+                        emphasis: {
+                          label: {
+                            show: true,
+                            fontSize: '18',
+                            fontWeight: 'bold'
+                          }
+                        },
+                        labelLine: {
+                          show: false
+                        },
+                        data: [{
                           value: 1048,
                           name: 'Members'
                         },
@@ -557,20 +566,20 @@
                           value: 580,
                           name: 'Guards'
                         },
-                        
-                      ]
-                    }]
-                  });
-                });
-              </script>
 
+                        ]
+                      }]
+                    });
+                  });
+                </script>
+
+              </div>
             </div>
+            <!-- End Website Traffic -->
           </div>
-          <!-- End Website Traffic -->
         </div>
-      </div>
     </section>
-      <!-- End Recent Activity -->
+    <!-- End Recent Activity -->
 
     <section class="section dashboard">
 
@@ -581,12 +590,13 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Shield  Guard</span></strong>. All Rights are Reserved
+      &copy; Copyright <strong><span>Shield Guard</span></strong>. All Rights are Reserved
     </div>
 
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

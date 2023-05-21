@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link rel="icon" href="assets/img/facicon.jpg">
+  <link rel="icon" href="../../images/favicon.jpg">
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -27,19 +27,18 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"> -->
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <script type="module" src="../../src/web-admin.js"></script>
 </head>
 
 <body>
 
   <main>
-    <div class="container">
 
+    <div class="container">
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
@@ -101,11 +100,12 @@
 
             </div>
           </div>
-        </div>
-
+        </div><br><br><br>
+        <a href="../Mainlogin.html" class="back-button">Go Back</a>
       </section>
 
     </div>
+
   </main><!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -123,7 +123,51 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+    import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
+      authDomain: "shield-guard-44ecf.firebaseapp.com",
+      databaseURL: "https://shield-guard-44ecf-default-rtdb.firebaseio.com",
+      projectId: "shield-guard-44ecf",
+      storageBucket: "shield-guard-44ecf.appspot.com",
+      messagingSenderId: "792292181818",
+      appId: "1:792292181818:web:e5f05e1714526cc0e2b203"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    //auth and firestore references
+    const webAdminAuth = getAuth(app);
+
+    //firestore DB
+    const db = getFirestore(app);
+
+    // webAdmin login
+    const webAdmin = document.querySelector('#web-admin-login');
+    webAdmin.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = webAdmin.webAdminEmail.value;
+      const password = webAdmin.webAdminPassword.value;
+      console.log(email, password);
+      signInWithEmailAndPassword(webAdminAuth, email, password)
+        .then(cred => {
+          console.log('User logged in = ', cred.user);
+          webAdmin.reset();
+          window.location.href = 'index.html';
+          alert('Webpage Admin Logged in Successfully!');
+        })
+        .catch((err) => {
+          alert('Login Failed. Please check your credentials.');
+          console.log(err.message);
+        });
+    });
+  </script>
 </body>
 
 </html>

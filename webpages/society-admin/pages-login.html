@@ -13,9 +13,13 @@
   <link rel="icon" href="assets/img/facicon.jpg">
 
   <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -57,20 +61,20 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" id="soc-admin-login" novalidate>
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
+                      <label for="socAdminEmail" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" name="username" class="form-control" id="socAdminEmail" required>
                         <div class="invalid-feedback">Please enter your username.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <label for="socAdminPassword" class="form-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="socAdminPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
@@ -104,7 +108,8 @@
     </div>
   </main><!-- End #main -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -118,7 +123,51 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+    import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
+      authDomain: "shield-guard-44ecf.firebaseapp.com",
+      databaseURL: "https://shield-guard-44ecf-default-rtdb.firebaseio.com",
+      projectId: "shield-guard-44ecf",
+      storageBucket: "shield-guard-44ecf.appspot.com",
+      messagingSenderId: "792292181818",
+      appId: "1:792292181818:web:e5f05e1714526cc0e2b203"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    //auth and firestore references
+    const socAdminAuth = getAuth(app);
+
+    //firestore DB
+    const db = getFirestore(app);
+
+    // society Admin login
+    const socAdmin = document.querySelector('#soc-admin-login');
+    socAdmin.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = socAdmin.socAdminEmail.value;
+      const password = socAdmin.socAdminPassword.value;
+      console.log(email, password);
+      signInWithEmailAndPassword(socAdminAuth, email, password)
+        .then(cred => {
+          console.log('User logged in = ', cred.user);
+          socAdmin.reset();
+          window.location.href = 'index.html';
+          alert('Society Admin Logged in Successfully!');
+        })
+        .catch((err) => {
+          alert('Login Failed. Please check your credentials.');
+          console.log(err.message);
+        });
+    });
+  </script>
 </body>
 
 </html>
