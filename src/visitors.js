@@ -1,8 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-storage.js";
-//import { initializeApp } from "firebase/app";
-//import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, query, where, orderBy, serverTimestamp } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
@@ -31,7 +29,6 @@ const addSocReq = document.querySelector('.societyRegistration')
 addSocReq.addEventListener('submit', (e) => {
     e.preventDefault()
     const file = addSocReq.ownerdoc.files[0];
-    alert('here');
     const storageRef = ref(storage, 'Ownership Documents/' + file.name);
     const uploadTask = uploadBytes(storageRef, file);
 
@@ -86,5 +83,3 @@ addSocReq.addEventListener('submit', (e) => {
             console.error('Error uploading file:', error);
         });
 })
-
-export { db };

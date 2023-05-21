@@ -68,30 +68,6 @@ signupForm.addEventListener('submit', (e) => {
         })
 })
 
-//log in/out
-const logoutBtn = documnet.querySelector('.logout')
-logoutBtn.addEventListener('click', () => {
-    signOut(auth).then(() => {
-        console.log('User logged out ')
-    })
-        .catch((err) => {
-            console.log(err.message)
-        })
-})
-
-const loginForm = document.querySelector('.login')
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const email = loginForm.email.value
-    const password = loginForm.password.value
-    signInWithEmailAndPassword(auth, email, password)
-        .then((cred) => {
-            console.log('user logged in = ', cred.user)
-        })
-        .catch((err) => {
-            console.log(err.message)
-        })
-})
 
 //subscribe to auth changes that occur
 onAuthStateChange(auth, (user) => {
@@ -114,4 +90,4 @@ unsubBtn.addEventListener('click', () => {
     unsubAuth()
 })
 
-//export { db };
+

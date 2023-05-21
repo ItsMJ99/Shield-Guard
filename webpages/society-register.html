@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="icon" href="../images/favicon.jpg">
   <script type='module' src="../src/config.js"></script>
-  <script src="bundle.js"></script>
+  <!-- <script src="bundle.js"></script> -->
   <script>
     function verifiedOwnerEmail() {
       alert("OTP successfully sent on your Email")
@@ -35,26 +35,6 @@
 
     function pop_up() {
       alert("Your Request for Registration has been sent Successfully !!!")
-    }
-
-    function myFunction() 
-    {
-      var x = document.getElementById("myInput");
-      if (x.type === "password") {
-        x.type = "text";
-      } else {
-        x.type = "password";
-      }
-    }
-
-    function PassFunction() 
-    {
-      var x = document.getElementById("o_confirm_password");
-      if (x.type === "password") {
-        x.type = "text";
-      } else {
-        x.type = "password";
-      }
     }
   </script>
 </head>
@@ -134,42 +114,10 @@
               </div>
 
               <div class="input-field">
-                <div class="showpass">
-                  <div class="left-p">
-                    <label for="o_password">Password</label><br>
-                    <input type="password" id="myInput" placeholder="Password" style="font-size: 13px;font-weight: 500; width: 95%;" required><br>
-                  </div>
+                <label for="o_password">Password</label>
+                <input type="password" id="o_password" placeholder="Password" required>
+                <input type="password" id="o_confirm_password" placeholder="Confirm Password" required>
 
-                  <div class="right-p">
-                    <div class="left">
-                      <input type="checkbox" onclick="myFunction()" id="s">
-                    </div>
-                     <br>&nbsp;
-                    <div class="right">
-                      <label for="s" style="font-size: 12px;">Show Password</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-
-              <div class="input-field">
-                <div class="showpass">
-                  <div class="left-p">
-                    <label for="o_confirm_password">Confirm Password</label>
-                  <input type="password" id="o_confirm_password" placeholder="Confirm Password" style="font-size: 13px;font-weight: 500; width: 95%;" required><br>
-                  </div>
-
-                  <div class="right-p">
-                    <div class="left">
-                      <input type="checkbox" onclick="PassFunction()" id="sp">
-                    </div>
-                     <br>&nbsp;
-                    <div class="right">
-                      <label for="sp" style="font-size: 12px;">Show Password</label>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div class="input-field">
@@ -211,7 +159,6 @@
               <div class="input-field">
                 <label for="country-state">State</label>
                 <select id="o_state" name="country-state" required>
-                  <option value="">Select One</option>
                   <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                   <option value="Andhra Pradesh">Andhra Pradesh</option>
                   <option value="Arunachal Pradesh">Arunachal Pradesh</option>

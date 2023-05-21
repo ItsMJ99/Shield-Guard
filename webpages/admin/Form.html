@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Registration Requests</title>
+  <title>ShieldGuard/Admin/form </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link rel="icon" href="../../images/favicon.jpg">
+  <link rel="icon" href="assets/img/facicon.jpg">
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -20,6 +20,8 @@
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +34,51 @@
 
   <!--  Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <script type="module" src="../../src/web-admin-logout.js"></script>
+
+  <link rel="stylesheet" href="assets/css/Registration.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+  <!-- Script file -->
+  <script src="https://kit.fontawesome.com/ca70c1521e.js" crossorigin="anonymous"></script>
+  <link rel="script" href="assets/js/script.js">
+
+  <script>
+    function verifiedOwnerEmail() {
+      alert("OTP successfully sent on your Email")
+      document.getElementById("otp_email").style.display = "block";
+      document.getElementById("otp_e").style.display = "block";
+    }
+    function verifiedPhoneNo() {
+      alert("OTP successfully sent on your Mobile no")
+      document.getElementById("ver1").style.display = "block";
+      document.getElementById("ver2").style.display = "block";
+    }
+
+    function verifiedSocietyEmail() {
+      alert("OTP successfully sent on your Email")
+      document.getElementById("otp_email1").style.display = "block";
+      document.getElementById("otp_e1").style.display = "block";
+    }
+
+    function pop_up() {
+      alert("Your Request for Registration has been sent Successfully !!!")
+    }
+  </script>
+  <style>
+    .scroll {
+
+      height: 100%;
+      width: auto;
+      border: 1px solid grey;
+      overflow: auto;
+    }
+  </style>
 </head>
 
 <body>
@@ -266,7 +312,6 @@
 
   </header><!-- End Header -->
 
-
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
@@ -290,34 +335,22 @@
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>User's Data</span>
+              <i class="bi bi-circle"></i><span>Member's Data</span>
             </a>
           </li>
           <li>
-            <a href="tables-data society.html">
-              <i class="bi bi-circle"></i><span>Society's Data </span>
+            <a href="tables-data Guard.html">
+              <i class="bi bi-circle"></i><span>Guard's Data</span>
             </a>
           </li>
         </ul>
       </li>
       <!-- End Tables Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Applications</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="pages-Approval.html">
-              <i class="bi bi-circle"></i><span>User Approval</span>
-            </a>
-          </li>
-        </ul>
-      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Add Society</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Add Member</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -370,9 +403,10 @@
 
       <li class="nav-heading">Quick Links</li>
       <li class="nav-item">
-        <a id='webadmin-logout' class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
-          Logout</a>
+          <span>Logout</span>
+        </a>
       </li>
 
     </ul>
@@ -380,38 +414,196 @@
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
+    <div class="container">
+      <header>Member Form</header>
+      <form action="#">
 
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Society Requests</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-    <div class="row">
-      <div class="col-md-14 mt-8">
-        <div class="card">
-          <div class="card-header pb-0 px-3">
-            <h6 class="mb-0">Society Requests</h6>
-          </div>
-          <div class="card-body pt-4 p-3">
+        <div class="form first">
 
-            <ul class="list-group" id="req-list">
-            </ul>
+          <div class="details personal">
+
+            <span class="title" id="dd">User Details</span>
+
+            <div class="fields">
+
+              <div class="input-field">
+                <label for="o_fname">First Name</label>
+                <input type="text" id="o_fname" placeholder="First Name" class="box box1" required>
+              </div>
+
+              <div class="input-field">
+                <label for="o_mname">Middle Name</label>
+                <input type="text" id="o_mname" placeholder="Middle Name" class="box box2" required>
+              </div>
+
+              <div class="input-field">
+                <label for="o_lname">Last Name</label>
+                <input type="text" id="o_lname" placeholder="Last Name" class="box box3" required>
+              </div>
+
+
+              <div class="input-field">
+                <label for="o_email">Email</label>
+                <input type="email" id="o_email" placeholder="Your Email" required>
+
+
+                <input type="text" style="display: none;" maxlength="6" id="otp_email" required>
+                <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required>
+
+              </div>
+
+              <div class="input-field">
+                <label for="o_phoneno">Phone No</label>
+                <input type="tel" id="o_phoneno" placeholder="Your Phone No" required>
+
+                <input type="text" style="display:none;" maxlength="6" id="ver1" required>
+                <input type="submit" style="display:none;" id="ver2" value="Confirm Phone No" required>
+              </div>
+
+
+              <div class="input-field">
+                <label>Gender</label>
+                <input type="text" placeholder="Gender" id="o_gender" required>
+              </div>
+
+              <div class="input-field">
+                <label>Occupation</label>
+                <input type="text" placeholder="Enter your occupation" id="o_occupation" required>
+              </div>
+
+              <div class="input-field">
+                <label for="o_dob">Date of Birth :</label>
+                <input type="text" id="o_dob" placeholder="Date Of Birth">
+              </div>
+
+            </div>
+
           </div>
-        </div>
-      </div>
+
+
+          <div class="details ID">
+
+            <span class="title">Address Details</span>
+
+            <div class="fields">
+
+              <div class="input-field">
+                <label>Permanent Address</label>
+                <input type="text" placeholder="Enter your Address" id="o_address" required>
+              </div>
+
+              <div class="input-field">
+                <label>District</label>
+                <input type="text" id="o_district" placeholder="District" required>
+              </div>
+
+              <div class="input-field">
+                <label>State</label>
+                <input type="text" id="o_state" placeholder="state" required>
+              </div>
+
+              <div class="input-field">
+                <label>Pincode</label>
+                <input type="number" id="o_pincode" placeholder="pincode/zipcode" required>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="details address">
+
+            <span class="title">Society Details</span>
+            <div class="fields">
+
+              <div class="input-field">
+                <label>Society Name</label>
+                <input type="text" id="s_name" placeholder="Society Name" required>
+              </div>
+
+              <div class="input-field">
+                <label for="s_address">Society Address</label>
+                <input name="address" id="s_address" type="text" placeholder="Enter Society Address" required>
+              </div>
+
+              <div class="input-field">
+                <label>State</label>
+                <input type="text" id="s_state" placeholder="state name" required>
+              </div>
+
+              <div class="input-field">
+                <label for="s_district">District</label>
+                <input type="text" id="s_district" placeholder="District" required>
+              </div>
+
+              <div class="input-field">
+                <label for="s_pincode">Pincode</label>
+                <input type="number" id="s_pincode" placeholder="pincode/zipcode">
+              </div>
+
+              <div class="input-field">
+                <label for="s_fd">Founding Date</label>
+                <input type="text" id="s_fd" placeholder="Founding Date">
+              </div>
+
+              <div class="input-field">
+                <label for="s_email">Society Email</label>
+                <input type="text" id="s_email" placeholder="email">
+              </div>
+
+              <div class="input-field">
+                <label for="s_phoneno">Society Phone No.</label>
+                <input type="text" id="s_phoneno" placeholder="phone no.">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="details family">
+            <span class="title"> Document</span>
+            <div class="fields">
+              <div class="input-field">
+                <center>
+                  <a href="#" style="display: block;" id="viewDocumentLink">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <p style="font-family: 'Times New Roman', Times, serif; font-size:larger; color: black;">View
+                      Document</p>
+                  </a>
+                </center>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="foot">
+            <!-- <input type="checkbox" id="discription1">
+
+             <label for="discription1"><strong>Agree to the Terms and Conditions and <a href="policy">Privacy
+                  Policy</strong></a></label><br><br>
+
+            <input type="checkbox" id="discription"> <label for="discription">I allow my information to be used for
+              future campaigns</label> -->
+            <div class="butt">
+              <button style="font-weight: 600;background-color:turquoise; border: solid; border-radius: 30px;"
+                value="Sign up" onclick="pop_up()" class="button1">Accept Request</button>
+
+              <button style="font-weight: 600; background-color:turquoise; border: solid;border-radius: 30px;"
+                class="button1">Reject<br>Request</button>
+            </div>
+
+          </div>
+      </form>
     </div>
+  </main>
 
-  </main><!-- End #main -->
+
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
       &copy; Copyright <strong><span>Shield Guard</span></strong>. All Rights are Reserved
     </div>
+
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -431,7 +623,7 @@
   <script src="assets/js/main.js"></script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-    import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+    import { getFirestore, getDoc, collection, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
     import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
     import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-storage.js";
 
@@ -458,56 +650,88 @@
     //firestore DB
     const db = getFirestore(app);
 
-    function fetchAndDisplayData() {
-      const ulElement = document.getElementById('req-list'); // ID of the <ul> element
+    // Get the form element
+    const form = document.querySelector('form');
 
-      // Retrieve documents from Firestore collection
-      getDocs(collection(db, 'society registration requests'))
-        .then((snapshot) => {
-          // Clear existing list items
-          ulElement.innerHTML = '';
+    function fetchData() {
+      // Get the request ID from the URL
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const reqid = urlParams.get('reqid');
 
-          // Loop through each document
-          snapshot.forEach((doc) => {
-            const data = doc.data();
-            const ownerName = data.owner_fname + " " + data.owner_mname + " " + data.owner_lname;
-            const societyName = data.society_name;
-            const email = data.owner_email;
-            const phone = data.owner_phoneno;
-            const reqid = doc.id; // Retrieve the document ID
+      if (reqid) {
+        // Retrieve the document details from Firestore based on the request ID
+        const docRef = doc(collection(db, 'society registration requests'), reqid);
+        console.log(docRef);
+        getDoc(docRef)
+          .then((doc) => {
+            if (doc.exists()) {
+              // Document found, retrieve the data
+              const data = doc.data();
+              // Access the data fields as needed
+              const ownerName = data.owner_fname;
+              const ownerMiddleName = data.owner_mname;
+              const ownerLastName = data.owner_lname;
+              const email = data.owner_email;
+              const phone = data.owner_phoneno;
+              const gender = data.owner_gender;
+              const occupation = data.owner_occupation;
+              const dob = data.owner_dob;
+              const address = data.owner_address;
+              const odistrict = data.owner_district;
+              const ostate = data.owner_state;
+              const opincode = data.owner_pincode;
+              const societyname = data.society_name;
+              const societyaddress = data.society_address;
+              const state = data.society_state;
+              const district = data.society_district;
+              const pincode = data.society_pincode;
+              const fd = data.society_FoundingDay;
+              const semail = data.society_email;
+              const sphoneno = data.society_phoneno;
+              const societyDocumentUrl = data.society_document;
 
-            // Create <li> element and set its content
-            const liElement = document.createElement('li');
-            liElement.className = 'list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg';
-            liElement.innerHTML = `
-          <div class="d-flex flex-column">
-            <h6 class="mb-3 text-sm">Request ID: ${reqid}</h6>
-<span class="mb-2 text-xs">Owner Name: <span class="text-dark font-weight-bold ms-sm-2">${ownerName}</span></span>
-            <span class="mb-2 text-xs">Society Name: <span class="text-dark font-weight-bold ms-sm-2">${societyName}</span></span>
-            <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">${email}</span></span>
-            <span class="text-xs">Mobile Number: <span class="text-dark ms-sm-2 font-weight-bold">${phone}</span></span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-dark px-3 mb-0" href="form.html?reqid=${reqid}">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>View Request
-            </a>
-          </div>
-        `;
+              // Update the form fields or display the retrieved data
+              document.getElementById('o_fname').value = ownerName;
+              document.getElementById('o_mname').value = ownerMiddleName;
+              document.getElementById('o_lname').value = ownerLastName;
+              document.getElementById('o_email').value = email;
+              document.getElementById('o_phoneno').value = phone;
+              document.getElementById('o_gender').value = gender;
+              document.getElementById('o_occupation').value = occupation;
+              document.getElementById('o_dob').value = dob;
+              document.getElementById('o_address').value = address;
+              document.getElementById('o_district').value = odistrict;
+              document.getElementById('o_state').value = ostate;
+              document.getElementById('o_pincode').value = opincode;
+              document.getElementById('s_name').value = societyname;
+              document.getElementById('s_address').value = societyaddress;
+              document.getElementById('s_state').value = state;
+              document.getElementById('s_district').value = district;
+              document.getElementById('s_pincode').value = pincode;
+              document.getElementById('s_fd').value = fd;
+              document.getElementById('s_email').value = semail;
+              document.getElementById('s_phoneno').value = sphoneno;
 
-            // Append the <li> element to the <ul> element
-            ulElement.appendChild(liElement);
+              // Add event listener to the "View Document" link
+              const viewDocumentLink = document.getElementById('viewDocumentLink');
+              viewDocumentLink.addEventListener('click', () => {
+                window.open(societyDocumentUrl, '_blank');
+              });
+            } else {
+              console.log('Document not found');
+            }
+          })
+          .catch((error) => {
+            console.log('Error getting document:', error);
           });
-        })
-        .catch((error) => {
-          console.log('Error getting documents:', error);
-        });
+      } else {
+        console.log('Request ID not provided in the URL');
+      }
     }
 
-    // Call the function when the page is loaded or reloaded
-    window.addEventListener('load', () => {
-      fetchAndDisplayData();
-      alert('Page Loaded');
-    });
+    // Call the fetchData function when the page is loaded
+    window.addEventListener('load', fetchData);
 
   </script>
 </body>
