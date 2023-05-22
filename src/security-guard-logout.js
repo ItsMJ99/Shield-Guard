@@ -31,7 +31,7 @@ logoutAnchor.addEventListener('click', (e) => {
     signOut(secGuardAuth)
         .then(() => {
             // Perform any additional actions after logout
-            window.location.href = '../../ShieldGuard.html'; // Redirect to login page
+            window.location.href = 'pages-login.html'; // Redirect to login page
             alert('Security Guard Logged out');
         })
         .catch((error) => {

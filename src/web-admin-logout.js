@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
 import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -40,6 +40,32 @@ logoutAnchor.addEventListener('click', (e) => {
         });
 });
 
+// Get the reference to the "webadmin" element
+const webadminElement = document.getElementById("webadmin");
+
+// Function to update the "webadmin" element with the current user's identifier
+const updateWebAdminElement = () => {
+    // Check if a user is currently logged in
+    const user = webAdminAuth.currentUser;
+    if (user) {
+        // Update the "webadmin" element with the user's identifier
+        webadminElement.textContent = user.email; // Use user.email or any other identifier property
+    }
+};
+
+// Add an authentication state listener to update the "webadmin" element when the user logs in or logs out
+onAuthStateChanged(getAuth(), (user) => {
+    if (user) {
+        // User is logged in
+        updateWebAdminElement();
+    } else {
+        // User is logged out, clear the content of "webadmin" element
+        webadminElement.textContent = "";
+    }
+});
+
+// Update the "webadmin" element when the user moves between floating window
+window.addEventListener("focus", updateWebAdminElement);
 
 //subscribe to auth changes that occur
 // onAuthStateChange(webAdminAuth, (user) => {

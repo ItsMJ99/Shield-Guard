@@ -31,7 +31,6 @@ const addSocReq = document.querySelector('.societyRegistration')
 addSocReq.addEventListener('submit', (e) => {
     e.preventDefault()
     const file = addSocReq.ownerdoc.files[0];
-    alert('here');
     const storageRef = ref(storage, 'Ownership Documents/' + file.name);
     const uploadTask = uploadBytes(storageRef, file);
 

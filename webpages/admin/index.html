@@ -65,12 +65,13 @@
           </a>
         </li><!-- End Search Icon-->
 
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
             <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
+          </a>
+           End Notification Icon 
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
             <li class="dropdown-header">
@@ -136,88 +137,84 @@
               <a href="#">Show all notifications</a>
             </li>
 
-          </ul><!-- End Notification Dropdown Items -->
+          </ul> End Notification Dropdown Items 
 
-        </li><!-- End Notification Nav -->
+        </li> End Notification Nav 
 
         <li class="nav-item dropdown">
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
             <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
+          </a> End Messages Icon 
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+          <li class="dropdown-header">
+            You have 3 new messages
+            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-            <li class="message-item">
-              <a href="#">
-                <!-- <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle"> -->
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+          <li class="message-item">
+            <a href="#">
+              <div>
+                <h4>Maria Hudson</h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-            <li class="message-item">
-              <a href="#">
-                <!-- <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle"> -->
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+          <li class="message-item">
+            <a href="#">
+              <div>
+                <h4>Anna Nelson</h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                <p>6 hrs. ago</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-            <li class="message-item">
-              <a href="#">
-                <!-- <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle"> -->
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+          <li class="message-item">
+            <a href="#">
+              <div>
+                <h4>David Muldon</h4>
+                <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                <p>8 hrs. ago</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
+          <li class="dropdown-footer">
+            <a href="#">Show all messages</a>
+          </li>
 
-          </ul><!-- End Messages Dropdown Items -->
+        </ul>End Messages Dropdown Items 
 
-        </li><!-- End Messages Nav -->
+        </li> End Messages Nav -->
 
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <img src="../../images/unf.png" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2" id="webadmin"></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
+            <!-- <li class="dropdown-header">
               <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
+            </li> -->
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -312,11 +309,11 @@
               <i class="bi bi-circle"></i><span>Society Registration Requests</span>
             </a>
           </li>
-          <!-- <li>
+          <li>
             <a href="feedback.html">
               <i class="bi bi-circle"></i><span>Feedbacks</span>
             </a>
-          </li> -->
+          </li>
         </ul>
       </li>
 
@@ -463,18 +460,65 @@
                   <!-- Line Chart -->
                   <div id="reportsChart"></div>
 
-                  <script>
+                  <script type="module">
+                    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+                    import { getFirestore, getDoc, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+                    import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+                    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-storage.js";
+
+                    // Your web app's Firebase configuration
+                    const firebaseConfig = {
+                      apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
+                      authDomain: "shield-guard-44ecf.firebaseapp.com",
+                      databaseURL: "https://shield-guard-44ecf-default-rtdb.firebaseio.com",
+                      projectId: "shield-guard-44ecf",
+                      storageBucket: "shield-guard-44ecf.appspot.com",
+                      messagingSenderId: "792292181818",
+                      appId: "1:792292181818:web:e5f05e1714526cc0e2b203"
+                    };
+
+                    // Initialize Firebase
+                    const app = initializeApp(firebaseConfig);
+
+                    //auth and firestore references
+                    const auth = getAuth(app);
+
+                    //init storage
+                    const storage = getStorage();
+
+                    //firestore DB
+                    const db = getFirestore(app);
+
+
+                    const getRegisteredSocietiesCount = async () => {
+                      var count;
+                      try {
+                        const querySnapshot = await getDocs(collection(db, 'registered societies'));
+                        count = querySnapshot.size;
+                        // Update the element with id "totalsoc" to display the count
+                        const totalsocElement = document.getElementById('totalsoc');
+                        totalsocElement.textContent = count.toString();
+                        s1 = count;
+                        return count;
+                      } catch (error) {
+                        console.error('Error retrieving records:', error);
+                      }
+                      return count;
+                    };
+                    var s1 = getRegisteredSocietiesCount();
+                    // Usage example
+                    getRegisteredSocietiesCount();
                     document.addEventListener("DOMContentLoaded", () => {
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: 'Users',
-                          data: [31, 40, 28, 51, 42, 82, 56],
+                          data: [0, 0, 0, 0, 0, 0, 7],
                         }, {
                           name: 'Society',
-                          data: [11, 32, 45, 32, 34, 52, 41]
+                          data: [0, 0, 0, 0, 0, 0, 3]
                         }, {
                           name: 'Guards',
-                          data: [15, 11, 32, 18, 9, 24, 11]
+                          data: [0, 0, 0, 0, 0, 0, 5]
                         }],
                         chart: {
                           height: 350,
@@ -541,12 +585,12 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Request Status<span>| Today</span></h5>
 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No.</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Status</th>
                       </tr>
@@ -779,51 +823,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-    import { getFirestore, getDoc, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
-    import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
-    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-storage.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
-      authDomain: "shield-guard-44ecf.firebaseapp.com",
-      databaseURL: "https://shield-guard-44ecf-default-rtdb.firebaseio.com",
-      projectId: "shield-guard-44ecf",
-      storageBucket: "shield-guard-44ecf.appspot.com",
-      messagingSenderId: "792292181818",
-      appId: "1:792292181818:web:e5f05e1714526cc0e2b203"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-
-    //auth and firestore references
-    const auth = getAuth(app);
-
-    //init storage
-    const storage = getStorage();
-
-    //firestore DB
-    const db = getFirestore(app);
-
-    const getRegisteredSocietiesCount = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'registered societies'));
-        const count = querySnapshot.size;
-        // Update the element with id "totalsoc" to display the count
-        const totalsocElement = document.getElementById('totalsoc');
-        totalsocElement.textContent = count.toString();
-
-        return count;
-      } catch (error) {
-        console.error('Error retrieving records:', error);
-      }
-    };
-
-    // Usage example
-    getRegisteredSocietiesCount();
-
 
   </script>
 </body>

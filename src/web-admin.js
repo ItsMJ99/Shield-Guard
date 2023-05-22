@@ -35,7 +35,6 @@ const db = getFirestore(app);
 const regSoc = document.querySelector('#admin-reg-res')
 regSoc.addEventListener('submit', (e) => {
     e.preventDefault()
-    alert('yolo');
     const file = regSoc.ownerdoc.files[0];
     const storageRef = ref(storage, 'Ownership Documents/' + file.name);
     const uploadTask = uploadBytes(storageRef, file);
@@ -48,7 +47,7 @@ regSoc.addEventListener('submit', (e) => {
             getDownloadURL(fileRef)
                 .then((url) => {
                     // Store the file URL in Firestore
-                    addDoc(collection(db, 'registered societies'), {//collection(db, 'society registration requests')
+                    addDoc(collection(db, 'registered societies'), {
                         owner_fname: regSoc.o_fname.value,
                         owner_mname: regSoc.o_mname.value,
                         owner_lname: regSoc.o_lname.value,
@@ -74,7 +73,6 @@ regSoc.addEventListener('submit', (e) => {
                         society_email: regSoc.s_email.value
                     })
                         .then(() => {
-                            regSoc.reset()
                             console.log('File URL stored in Firestore successfully.');
                         })
                         .catch((error) => {
@@ -93,60 +91,15 @@ regSoc.addEventListener('submit', (e) => {
     //get user info
     const email = regSoc.s_email.value;
     const password = regSoc.o_password.value;
-    console.log(email, password);
     //signup user
     createUserWithEmailAndPassword(webAdminAuth, email, password).then(cred => {
         console.log(cred.user);
-        regSoc.reset();
     });
+    regSoc.reset();
     alert('Society Registered and account created Successfully');
-})
+});
 
 
-
-// const table = document.getElementsByClassName('table datatable');
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     // The script code goes here
-
-//     getDocs(colRef)
-//         .then((snapshot) => {
-//             let tableRows = '';
-
-//             snapshot.docs.forEach((doc) => {
-//                 const data = doc.data();
-//                 const ownername = data.owner_fname + " " + data.owner_mname + " " + data.owner_lname;
-//                 const socname = data.society_name;
-//                 const owneroccupation = data.owner_occupation;
-//                 const ownerdob = data.owner_dob;
-//                 const ownerfoundingday = data.society_FoundingDay;
-
-//                 const row = `<tr>
-//                                 <td>${ownername}</td>
-//                                 <td>${socname}</td>
-//                                 <td>${owneroccupation}</td>
-//                                 <td>${ownerdob}</td>
-//                                 <td>${ownerfoundingday}</td>
-//                             </tr>`;
-
-//                 tableRows += row;
-//             });
-
-//             if (table) {
-//                 const tbody = table.querySelector('tbody');
-//                 if (tbody) {
-//                     tbody.innerHTML = tableRows;
-//                 } else {
-//                     console.log("Table body element not found");
-//                 }
-//             } else {
-//                 console.log("Table element not found");
-//             }
-//         })
-//         .catch((error) => {
-//             console.log(error.message);
-//         });
-// });
 
 
 

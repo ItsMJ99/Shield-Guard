@@ -67,159 +67,18 @@
           </a>
         </li><!-- End Search Icon-->
 
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number">4</span>
-          </a><!-- End Notification Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-            <li class="dropdown-header">
-              You have 4 new notifications
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-exclamation-circle text-warning"></i>
-              <div>
-                <h4>Lorem Ipsum</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>30 min. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-x-circle text-danger"></i>
-              <div>
-                <h4>Atque rerum nesciunt</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>1 hr. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-check-circle text-success"></i>
-              <div>
-                <h4>Sit rerum fuga</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>2 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="notification-item">
-              <i class="bi bi-info-circle text-primary"></i>
-              <div>
-                <h4>Dicta reprehenderit</h4>
-                <p>Quae dolorem earum veritatis oditseno</p>
-                <p>4 hrs. ago</p>
-              </div>
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li class="dropdown-footer">
-              <a href="#">Show all notifications</a>
-            </li>
-
-          </ul><!-- End Notification Dropdown Items -->
-
-        </li><!-- End Notification Nav -->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number">3</span>
-          </a><!-- End Messages Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-            <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <!-- <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle"> -->
-                <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <!-- <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle"> -->
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <!-- <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle"> -->
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
-
-          </ul><!-- End Messages Dropdown Items -->
-
-        </li><!-- End Messages Nav -->
-
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <img src="../../images/unf.png" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2" id="webadmin"></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
+            <!-- <li class="dropdown-header">
               <h6>Kevin Anderson</h6>
               <span>Web Designer</span>
-            </li>
+            </li> -->
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -313,6 +172,11 @@
               <i class="bi bi-circle"></i><span>Society Registration Requests</span>
             </a>
           </li>
+          <li>
+            <a href="feedback.html">
+              <i class="bi bi-circle"></i><span>Feedbacks</span>
+            </a>
+          </li>
         </ul>
       </li>
 
@@ -403,52 +267,19 @@
 
 
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable socrecords" style="text-align: center;">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Society Name </th>
-                    <th scope="col">Owner Name </th>
-                    <th scope="col">Members</th>
-                    <th scope="col">Society Start Date</th>
+                    <th scope="col">Unique ID</th>
+                    <th scope="col">Society Name</th>
+                    <th scope="col">Owner Name</th>
+                    <th scope="col">Foundation Date</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Address</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>XYZ</td>
-                    <td>Ram Patil</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>XYZ</td>
-                    <td>Raviraj Kessler</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>XYZ</td>
-                    <td>Raviraj Kessler</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>XYZ</td>
-                    <td>Raviraj Kessler</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>XYZ</td>
-                    <td>Raviraj Kessler</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                  </tr>
+                  <!-- Table rows with cells -->
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
@@ -485,6 +316,85 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+    import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+    import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-storage.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
+      authDomain: "shield-guard-44ecf.firebaseapp.com",
+      databaseURL: "https://shield-guard-44ecf-default-rtdb.firebaseio.com",
+      projectId: "shield-guard-44ecf",
+      storageBucket: "shield-guard-44ecf.appspot.com",
+      messagingSenderId: "792292181818",
+      appId: "1:792292181818:web:e5f05e1714526cc0e2b203"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    //auth and firestore references
+    const webAdminAuth = getAuth(app);
+
+    //init storage
+    const storage = getStorage();
+
+    //firestore DB
+    const db = getFirestore(app);
+
+    const table = document.getElementsByClassName('socrecords');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // The script code goes here
+
+      const colRef = collection(db, 'registered societies');
+
+      getDocs(colRef)
+        .then((snapshot) => {
+          let tableRows = '';
+          var index = 0;
+          snapshot.docs.forEach((doc) => {
+            const data = doc.data();
+            const ownername = data.owner_fname + " " + data.owner_mname + " " + data.owner_lname;
+            const socname = data.society_name;
+            const socfoundingday = data.society_FoundingDay;
+            const socstate = data.society_state;
+            const socdist = data.society_district;
+            const socadd = data.society_address;
+            const uid = doc.id; // Fetch the document ID and assign it to Uid variable
+            const row = `<tr>
+                        <td>${uid}</td>
+                        <td>${socname}</td>
+                        <td>${ownername}</td>
+                        <td>${socfoundingday}</td>
+                        <td>${socstate}</td>
+                        <td>${socadd + socdist}</td>
+                        
+                    </tr>`;
+            tableRows += row;
+          });
+
+          if (table) {
+            const tbody = document.querySelector('tbody');
+            if (tbody) {
+              tbody.innerHTML = tableRows;
+            } else {
+              console.log("Table body element not found");
+            }
+          } else {
+            console.log("Table element not found");
+          }
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    });
+
+
+  </script>
 </body>
 
 </html>

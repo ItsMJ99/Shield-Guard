@@ -31,7 +31,7 @@ logoutAnchor.addEventListener('click', (e) => {
     signOut(socAdminAuth)
         .then(() => {
             // Perform any additional actions after logout
-            window.location.href = '../../ShieldGuard.html'; // Redirect to login page
+            window.location.href = 'pages-login.html'; // Redirect to login page
             alert('Society Admin Logged out');
         })
         .catch((error) => {
