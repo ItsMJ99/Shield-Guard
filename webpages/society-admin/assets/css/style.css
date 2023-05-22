@@ -978,12 +978,13 @@ Header Nav
 
 /*Promo card read all -- show less Feature */
 
-.main-body{
+.main-body {
   background-color: #fff;
   width: 95%;
   padding: 1rem;
 }
-.promo_card{
+
+.promo_card {
   width: 100%;
   color: #000;
   margin-top: 10px;
@@ -993,54 +994,84 @@ Header Nav
   box-shadow: #000;
 
 }
-.promo_card h1, .promo_card span, button{
+
+.promo_card h1,
+.promo_card span,
+button {
   margin: 10px;
 }
-.promo_card button{
+
+.promo_card button {
   display: block;
   padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-#check{
+#check {
   display: none;
-  }
-  
-  .content{
+}
+
+.content {
   display: none;
   transition: 0.5s linear;
-  
-  } 
-  
-  label
-  {
-  margin-top: 15px; 
-  display: inline-block; 
-  color: #121111; 
+
+}
+
+label {
+  margin-top: 15px;
+  display: inline-block;
+  color: #121111;
   text-decoration: underline;
   cursor: pointer;
   font-weight: 600;
-  
-  }
-  #check:checked ~ .content {
-      display: block;
-      
-  } 
-  #check{
-    visibility:visible;
-  }
-  #check:checked ~ label {
-  
-      visibility:hidden;
-  } 
-  #check:checked ~ label:after{
-      content: 'Show Less';
-      display: block;
-      visibility:visible;
-  }
 
-  
+}
 
-  
-  
+#check:checked~.content {
+  display: block;
+
+}
+
+#check {
+  visibility: visible;
+}
+
+#check:checked~label {
+
+  visibility: hidden;
+}
+
+#check:checked~label:after {
+  content: 'Show Less';
+  display: block;
+  visibility: visible;
+}
+
+/*--------------------------------------------------------------
+  # Login Page
+  --------------------------------------------------------------*/
+
+.back-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #2d5dfa;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  background-color: #315dee;
+}
+
+.back-button:active {
+  transform: scale(0.98);
+}

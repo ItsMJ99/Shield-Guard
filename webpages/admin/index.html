@@ -309,9 +309,14 @@
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="pages-Approval.html">
-              <i class="bi bi-circle"></i><span>User Approval</span>
+              <i class="bi bi-circle"></i><span>Society Registration Requests</span>
             </a>
           </li>
+          <!-- <li>
+            <a href="feedback.html">
+              <i class="bi bi-circle"></i><span>Feedbacks</span>
+            </a>
+          </li> -->
         </ul>
       </li>
 
@@ -348,21 +353,21 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://www.instagram.com/?hl=en">
           <i class="bi bi-instagram"></i>
           <span>Instagram</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://twitter.com/home">
           <i class="bi bi-twitter"></i>
           <span>Twitter</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://www.facebook.com">
           <i class="bi bi-facebook"></i>
           <span>facebook</span>
         </a>
@@ -417,16 +422,16 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">User's <span>| Today</span></h5>
+                  <h5 class="card-title">Registered <span>| Societies</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-person"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span
-                        class="text-muted small pt-2 ps-1">increase</span>
+                      <h6 id="totalsoc">0</h6>
+                      <!-- <span class="text-success small pt-1 fw-bold">0%</span> <span
+                        class="text-muted small pt-2 ps-1">increase</span> -->
 
                     </div>
                   </div>
@@ -773,7 +778,54 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+    import { getFirestore, getDoc, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+    import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-storage.js";
 
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
+      authDomain: "shield-guard-44ecf.firebaseapp.com",
+      databaseURL: "https://shield-guard-44ecf-default-rtdb.firebaseio.com",
+      projectId: "shield-guard-44ecf",
+      storageBucket: "shield-guard-44ecf.appspot.com",
+      messagingSenderId: "792292181818",
+      appId: "1:792292181818:web:e5f05e1714526cc0e2b203"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    //auth and firestore references
+    const auth = getAuth(app);
+
+    //init storage
+    const storage = getStorage();
+
+    //firestore DB
+    const db = getFirestore(app);
+
+    const getRegisteredSocietiesCount = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'registered societies'));
+        const count = querySnapshot.size;
+        // Update the element with id "totalsoc" to display the count
+        const totalsocElement = document.getElementById('totalsoc');
+        totalsocElement.textContent = count.toString();
+
+        return count;
+      } catch (error) {
+        console.error('Error retrieving records:', error);
+      }
+    };
+
+    // Usage example
+    getRegisteredSocietiesCount();
+
+
+  </script>
 </body>
 
 </html>

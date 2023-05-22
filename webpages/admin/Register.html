@@ -352,7 +352,7 @@
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="pages-Approval.html">
-              <i class="bi bi-circle"></i><span>User Approval</span>
+              <i class="bi bi-circle"></i><span>Society Registration Requests</span>
             </a>
           </li>
         </ul>
@@ -391,21 +391,21 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://www.instagram.com/?hl=en">
           <i class="bi bi-instagram"></i>
           <span>Instagram</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://twitter.com/home">
           <i class="bi bi-twitter"></i>
           <span>Twitter</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://www.facebook.com">
           <i class="bi bi-facebook"></i>
           <span>facebook</span>
         </a>
@@ -424,7 +424,7 @@
 
   <main id="main" class="main">
     <div class="container">
-      <header>User Registration</header>
+      <header>Society Registration Form</header>
       <form id="admin-reg-res">
 
         <div class="form first">
@@ -467,13 +467,6 @@
                 <input type="submit" onclick="verifiedPhoneNo()" value="Generate OTP" required>
                 <input type="text" style="display:none;" maxlength="6" id="ver1" required>
                 <input type="submit" style="display:none;" id="ver2" value="Confirm Phone No" required>
-              </div>
-
-              <div class="input-field">
-                <label for="o_password">Password</label>
-                <input type="password" id="o_password" placeholder="Password" required>
-                <input type="password" id="o_confirm_password" placeholder="Confirm Password" required>
-
               </div>
 
               <div class="input-field">
@@ -673,13 +666,18 @@
               </div>
 
               <div class="input-field">
-                <label for="s_email"></label>
+                <label for="s_email">Society Email</label>
                 <input type="email" id="s_email" placeholder="Your Email" required>
                 <input type="submit" onclick="verifiedSocietyEmail()" value="Generate OTP" required>
                 <input type="text" style="display: none;" maxlength="6" id="otp_email1" required>
                 <input type="submit" style="display: none;" id="otp_e1" value="Confirm Email" required>
               </div>
 
+              <div class="input-field">
+                <label for="o_password">Password</label>
+                <input type="password" id="o_password" placeholder="Password" required>
+                <input type="password" id="o_confirm_password" placeholder="Confirm Password" required>
+              </div>
             </div>
 
           </div>
@@ -733,7 +731,32 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    function checkPasswordMatch() {
+      const passwordField = document.getElementById('o_password');
+      const confirmPasswordField = document.getElementById('o_confirm_password');
+      const password = passwordField.value;
+      const confirmPassword = confirmPasswordField.value;
 
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please re-enter.");
+        passwordField.value = ''; // Reset password field
+        confirmPasswordField.value = ''; // Reset confirm password field
+        return false; // Prevent form submission
+      }
+
+      return true; // Allow form submission
+    }
+
+    document.getElementById('o_confirm_password').addEventListener('blur', checkPasswordMatch);
+
+    document.getElementById('reg-society').addEventListener('submit', function (event) {
+      if (!checkPasswordMatch()) {
+        event.preventDefault(); // Prevent form submission
+      }
+    });
+
+  </script>
 </body>
 
 </html>

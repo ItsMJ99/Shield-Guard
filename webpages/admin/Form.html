@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>ShieldGuard/Admin/form </title>
+  <title>Add Member/form </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link rel="icon" href="assets/img/facicon.jpg">
+  <link rel="icon" href="../../images/favicon.jpg">
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -29,7 +29,7 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"> -->
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!--  Main CSS File -->
@@ -69,7 +69,9 @@
     function pop_up() {
       alert("Your Request for Registration has been sent Successfully !!!")
     }
+
   </script>
+
   <style>
     .scroll {
 
@@ -79,6 +81,7 @@
       overflow: auto;
     }
   </style>
+  <script type="module" src="../../src/web-admin-logout.js"></script>
 </head>
 
 <body>
@@ -203,7 +206,6 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>Maria Hudson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -217,7 +219,6 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>Anna Nelson</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -231,7 +232,6 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>David Muldon</h4>
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -381,21 +381,21 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://www.instagram.com">
           <i class="bi bi-instagram"></i>
           <span>Instagram</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://twitter.com/home">
           <i class="bi bi-twitter"></i>
           <span>Twitter</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="https://www.facebook.com">
           <i class="bi bi-facebook"></i>
           <span>facebook</span>
         </a>
@@ -403,10 +403,10 @@
 
       <li class="nav-heading">Quick Links</li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <!-- Add the class and ID to the anchor tag -->
+        <a id='webadmin-logout' class="nav-link collapsed" href="#">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>Logout</span>
-        </a>
+          Logout</a>
       </li>
 
     </ul>
@@ -415,8 +415,8 @@
 
   <main id="main" class="main">
     <div class="container">
-      <header>Member Form</header>
-      <form action="#">
+      <header>Society Registration</header>
+      <form id="admin-reg-res"><!--reg-society -->
 
         <div class="form first">
 
@@ -551,6 +551,11 @@
               </div>
 
               <div class="input-field">
+                <label for="o_password">Password</label>
+                <input type="text" id="o_password" placeholder="Password" required>
+              </div>
+
+              <div class="input-field">
                 <label for="s_phoneno">Society Phone No.</label>
                 <input type="text" id="s_phoneno" placeholder="phone no.">
               </div>
@@ -575,19 +580,12 @@
 
 
           <div class="foot">
-            <!-- <input type="checkbox" id="discription1">
-
-             <label for="discription1"><strong>Agree to the Terms and Conditions and <a href="policy">Privacy
-                  Policy</strong></a></label><br><br>
-
-            <input type="checkbox" id="discription"> <label for="discription">I allow my information to be used for
-              future campaigns</label> -->
             <div class="butt">
               <button style="font-weight: 600;background-color:turquoise; border: solid; border-radius: 30px;"
-                value="Sign up" onclick="pop_up()" class="button1">Accept Request</button>
+                value="Sign up" onclick="pop_up()" id='subbtn' class="button1">Accept Request</button>
 
               <button style="font-weight: 600; background-color:turquoise; border: solid;border-radius: 30px;"
-                class="button1">Reject<br>Request</button>
+                class="button1" id="reject-req">Reject<br>Request</button>
             </div>
 
           </div>
@@ -653,16 +651,15 @@
     // Get the form element
     const form = document.querySelector('form');
 
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const reqid = urlParams.get('reqid');
+
     function fetchData() {
       // Get the request ID from the URL
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const reqid = urlParams.get('reqid');
-
       if (reqid) {
         // Retrieve the document details from Firestore based on the request ID
         const docRef = doc(collection(db, 'society registration requests'), reqid);
-        console.log(docRef);
         getDoc(docRef)
           .then((doc) => {
             if (doc.exists()) {
@@ -688,8 +685,11 @@
               const pincode = data.society_pincode;
               const fd = data.society_FoundingDay;
               const semail = data.society_email;
+              const spwd = data.owner_password;
+              //const scpwd = data.owner_confirm_password;
               const sphoneno = data.society_phoneno;
               const societyDocumentUrl = data.society_document;
+
 
               // Update the form fields or display the retrieved data
               document.getElementById('o_fname').value = ownerName;
@@ -711,6 +711,8 @@
               document.getElementById('s_pincode').value = pincode;
               document.getElementById('s_fd').value = fd;
               document.getElementById('s_email').value = semail;
+              document.getElementById('o_password').value = spwd;
+              //document.getElementById('o_confirm_password').value = scpwd;
               document.getElementById('s_phoneno').value = sphoneno;
 
               // Add event listener to the "View Document" link
@@ -733,7 +735,108 @@
     // Call the fetchData function when the page is loaded
     window.addEventListener('load', fetchData);
 
+    //reject record
+    const deleteRegistrationRequest = (regid) => {
+      const regSocRef = doc(db, 'society registration requests', regid);
+
+      getDoc(regSocRef)
+        .then((doc) => {
+          if (doc.exists()) {
+            deleteDoc(regSocRef)
+              .then(() => {
+                console.log('Document deleted from "society registration requests" collection successfully.');
+                alert('Record deleted successfully from the database');
+                window.location.href = 'pages-Approval.html'; // Redirect to the desired page
+              })
+              .catch((error) => {
+                console.error('Error deleting document:', error);
+                alert('An error occurred while deleting the record');
+              });
+          } else {
+            console.log('Document not found in "society registration requests" collection.');
+            alert('Record not found in the database');
+          }
+        })
+        .catch((error) => {
+          console.error('Error retrieving document:', error);
+          alert('An error occurred while retrieving the record');
+        });
+    };
+
+    const rejectButton = document.getElementById('reject-req');
+    rejectButton.addEventListener('click', () => {
+      // Access the document ID from the regid variable or retrieve it as per your requirement
+      deleteRegistrationRequest(reqid);
+    });
+
+    const processRegistrationRequest = (reqid) => {
+      const regSoc = doc(db, 'society registration requests', reqid);
+      getDoc(regSoc)
+        .then((doc) => {
+          if (doc.exists()) {
+            const requestData = doc.data();
+
+            // Store the data in the "registered societies" collection
+            addDoc(collection(db, 'registered societies'), {
+              owner_fname: regSoc.o_fname.value,
+              owner_mname: regSoc.o_mname.value,
+              owner_lname: regSoc.o_lname.value,
+              owner_email: regSoc.o_email.value,
+              owner_phoneno: regSoc.o_phoneno.value,
+              owner_password: regSoc.o_password.value,
+              owner_gender: regSoc.o_gender.value,
+              owner_occupation: regSoc.o_occupation.value,
+              owner_dob: regSoc.o_dob.value,
+              owner_address: regSoc.o_address.value,
+              owner_state: regSoc.o_state.value,
+              owner_district: regSoc.o_district.value,
+              owner_pincode: regSoc.o_pincode.value,
+              society_name: regSoc.s_name.value,
+              society_address: regSoc.s_address.value,
+              society_state: regSoc.s_state.value,
+              society_district: regSoc.s_district.value,
+              society_pincode: regSoc.s_pincode.value,
+              society_document: url,
+              society_phoneno: regSoc.s_phoneno.value,
+              society_FoundingDay: regSoc.s_date.value,
+              society_admins: regSoc.s_admins.value,
+              society_email: regSoc.s_email.value
+            })
+              .then(() => {
+                console.log('Data stored in "registered societies" collection successfully.');
+
+                // Delete the document from the "society registration requests" collection
+                deleteDoc(regSoc)
+                  .then(() => {
+                    console.log('Document deleted from "society registration requests" collection successfully.');
+                  })
+                  .catch((error) => {
+                    console.error('Error deleting document:', error);
+                  });
+              })
+              .catch((error) => {
+                console.error('Error storing data in "registered societies" collection:', error);
+              });
+          } else {
+            console.log('Document not found');
+          }
+        })
+        .catch((error) => {
+          console.error('Error getting document:', error);
+        });
+    };
+
+    const regSocForm = document.querySelector('#admin-reg-res')
+    regSocForm.addEventListener('submit', (e) => {
+
+      e.preventDefault(); // Prevent form submission
+      processRegistrationRequest(reqId);
+
+    });
+
+
   </script>
+
 </body>
 
 </html>

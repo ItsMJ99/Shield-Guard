@@ -65,7 +65,7 @@
       <ul class="nav-items">
         <li class='nav-item'><a href="../ShieldGuard.html">Home</a></li>
         <li class='nav-item'><a href="./about.html">About-Us</a></li>
-        <li class='nav-item'><a href="./login.html">Admin-Login</a></li>
+        <li class='nav-item'><a href="./admin/pages-login.html">Admin-Login</a></li>
         <li class='nav-item'><a href="./contact us.html">Contact-Us</a></li>
       </ul>
     </div>
@@ -431,7 +431,31 @@
     <p>Shield Guard &copy; 2023, All Rights Reserved</p>
   </section>
 
+  <script>
+    function checkPasswordMatch() {
+      const passwordField = document.getElementById('o_password');
+      const confirmPasswordField = document.getElementById('o_confirm_password');
+      const password = passwordField.value;
+      const confirmPassword = confirmPasswordField.value;
 
+      if (password !== confirmPassword) {
+        alert("Passwords do not match. Please re-enter.");
+        passwordField.value = ''; // Reset password field
+        confirmPasswordField.value = ''; // Reset confirm password field
+        return false; // Prevent form submission
+      }
+
+      return true; // Allow form submission
+    }
+
+    document.getElementById('o_confirm_password').addEventListener('blur', checkPasswordMatch);
+
+    document.getElementById('reg-society').addEventListener('submit', function (event) {
+      if (!checkPasswordMatch()) {
+        event.preventDefault(); // Prevent form submission
+      }
+    });
+  </script>
 </body>
 
 </html>
