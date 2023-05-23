@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link rel="icon" href="assets/img/facicon.jpg">
+  <link rel="icon" href="../../images/favicon.jpg">
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -27,7 +27,7 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"> -->
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
@@ -150,24 +150,41 @@
     const db = getFirestore(app);
 
     // society Admin login
-    const socAdmin = document.querySelector('#soc-admin-login');
-    socAdmin.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = socAdmin.socAdminEmail.value;
-      const password = socAdmin.socAdminPassword.value;
-      console.log(email, password);
-      signInWithEmailAndPassword(socAdminAuth, email, password)
-        .then(cred => {
-          console.log('User logged in = ', cred.user);
-          socAdmin.reset();
-          window.location.href = 'index.html';
-          alert('Society Admin Logged in Successfully!');
-        })
-        .catch((err) => {
-          alert('Login Failed. Please check your credentials.');
-          console.log(err.message);
+    const loginForm = document.querySelector('#soc-admin-login');
+    loginForm.addEventListener('submit', checkSocietyDocuments);
+
+    async function checkSocietyDocuments(e) {
+      e.preventDefault(); // Prevent form submission
+
+      try {
+        const querySnapshot = await getDocs(collection(db, "registered societies"));
+        let isLoginSuccessful = false;
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const email = data.society_email;
+          const password = data.owner_password;
+
+          // Retrieve the input values from the form
+          const emailInput = loginForm.querySelector('#socAdminEmail').value;
+          const passwordInput = loginForm.querySelector('#socAdminPassword').value;
+
+          // Check if values match
+          if (email === emailInput && password === passwordInput) {
+            isLoginSuccessful = true;
+            alert("Society Admin logged in successfully");
+            window.location.href = "index.html"; // Redirect to index.html
+          }
         });
-    });
+
+        if (!isLoginSuccessful) {
+          alert("Login failed. Please check your credentials.");
+        }
+      } catch (error) {
+        console.error("Error checking society documents:", error);
+      }
+    }
+
   </script>
 </body>
 

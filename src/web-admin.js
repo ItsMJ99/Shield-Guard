@@ -41,7 +41,6 @@ regSoc.addEventListener('submit', (e) => {
     uploadTask
         .then((snapshot) => {
             console.log('File uploaded successfully.');
-
             // Get the file URL
             const fileRef = ref(storage, snapshot.ref.fullPath);
             getDownloadURL(fileRef)
@@ -74,6 +73,7 @@ regSoc.addEventListener('submit', (e) => {
                     })
                         .then(() => {
                             console.log('File URL stored in Firestore successfully.');
+                            regSoc.reset();
                         })
                         .catch((error) => {
                             console.error('Error storing file URL in Firestore:', error);
@@ -86,19 +86,8 @@ regSoc.addEventListener('submit', (e) => {
         .catch((error) => {
             console.error('Error uploading file:', error);
         });
-
-
-    //get user info
-    const email = regSoc.s_email.value;
-    const password = regSoc.o_password.value;
-    //signup user
-    createUserWithEmailAndPassword(webAdminAuth, email, password).then(cred => {
-        console.log(cred.user);
-    });
-    regSoc.reset();
     alert('Society Registered and account created Successfully');
 });
-
 
 
 

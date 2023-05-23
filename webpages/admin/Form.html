@@ -66,10 +66,6 @@
       document.getElementById("otp_e1").style.display = "block";
     }
 
-    function pop_up() {
-      alert("Your Request for Registration has been sent Successfully !!!")
-    }
-
   </script>
 
   <style>
@@ -81,7 +77,6 @@
       overflow: auto;
     }
   </style>
-  <script type="module" src="../../src/web-admin-logout.js"></script>
 </head>
 
 <body>
@@ -331,7 +326,7 @@
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>User's Data</span>
+              <i class="bi bi-circle"></i><span>Owner's Data</span>
             </a>
           </li>
           <li>
@@ -459,8 +454,6 @@
                 <label for="o_email">Email</label>
                 <input type="email" id="o_email" placeholder="Your Email" required>
 
-
-                <input type="text" style="display: none;" maxlength="6" id="otp_email" required>
                 <input type="submit" style="display: none;" id="otp_e" value="Confirm Email" required>
 
               </div>
@@ -468,8 +461,6 @@
               <div class="input-field">
                 <label for="o_phoneno">Phone No</label>
                 <input type="tel" id="o_phoneno" placeholder="Your Phone No" required>
-
-                <input type="text" style="display:none;" maxlength="6" id="ver1" required>
                 <input type="submit" style="display:none;" id="ver2" value="Confirm Phone No" required>
               </div>
 
@@ -788,32 +779,31 @@
         .then((doc) => {
           if (doc.exists()) {
             const requestData = doc.data();
-
             // Store the data in the "registered societies" collection
             addDoc(collection(db, 'registered societies'), {
-              owner_fname: regSoc.o_fname.value,
-              owner_mname: regSoc.o_mname.value,
-              owner_lname: regSoc.o_lname.value,
-              owner_email: regSoc.o_email.value,
-              owner_phoneno: regSoc.o_phoneno.value,
-              owner_password: regSoc.o_password.value,
-              owner_gender: regSoc.o_gender.value,
-              owner_occupation: regSoc.o_occupation.value,
-              owner_dob: regSoc.o_dob.value,
-              owner_address: regSoc.o_address.value,
-              owner_state: regSoc.o_state.value,
-              owner_district: regSoc.o_district.value,
-              owner_pincode: regSoc.o_pincode.value,
-              society_name: regSoc.s_name.value,
-              society_address: regSoc.s_address.value,
-              society_state: regSoc.s_state.value,
-              society_district: regSoc.s_district.value,
-              society_pincode: regSoc.s_pincode.value,
-              society_document: url,
-              society_phoneno: regSoc.s_phoneno.value,
-              society_FoundingDay: regSoc.s_date.value,
-              society_admins: regSoc.s_admins.value,
-              society_email: regSoc.s_email.value
+              owner_fname: requestData.owner_fname,
+              owner_mname: requestData.owner_mname,
+              owner_lname: requestData.owner_lname,
+              owner_email: requestData.owner_email,
+              owner_phoneno: requestData.owner_phoneno,
+              owner_password: requestData.owner_password,
+              owner_gender: requestData.owner_gender,
+              owner_occupation: requestData.owner_occupation,
+              owner_dob: requestData.owner_dob,
+              owner_address: requestData.owner_address,
+              owner_state: requestData.owner_state,
+              owner_district: requestData.owner_district,
+              owner_pincode: requestData.owner_pincode,
+              society_name: requestData.society_name,
+              society_address: requestData.society_address,
+              society_state: requestData.society_state,
+              society_district: requestData.society_district,
+              society_pincode: requestData.society_pincode,
+              society_phoneno: requestData.society_phoneno,
+              society_FoundingDay: requestData.society_FoundingDay,
+              society_admins: requestData.society_admins,
+              society_email: requestData.society_email,
+              society_document: requestData.society_document
             })
               .then(() => {
                 console.log('Data stored in "registered societies" collection successfully.');
@@ -822,6 +812,8 @@
                 deleteDoc(regSoc)
                   .then(() => {
                     console.log('Document deleted from "society registration requests" collection successfully.');
+                    alert('Account created and society registered successfully.');
+                    window.location.href = 'pages-approval.html'; // Redirect to pages-approval.html
                   })
                   .catch((error) => {
                     console.error('Error deleting document:', error);
@@ -839,13 +831,13 @@
         });
     };
 
-    const regSocForm = document.querySelector('#admin-reg-res')
+    const regSocForm = document.querySelector('#admin-reg-res');
     regSocForm.addEventListener('submit', (e) => {
-
-      e.preventDefault(); // Prevent form submission
-      processRegistrationRequest(reqId);
-
+      e.preventDefault();
+      processRegistrationRequest(reqid);
     });
+
+
 
 
   </script>

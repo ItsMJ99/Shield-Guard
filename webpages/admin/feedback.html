@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Registration Requests</title>
+    <title>Feedbacks</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -27,106 +27,13 @@
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
     <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <!-- <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"> -->
     <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <!--  Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
     <script type="module" src="../../src/web-admin-logout.js"></script>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
-        import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
-        import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-storage.js";
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
-            authDomain: "shield-guard-44ecf.firebaseapp.com",
-            databaseURL: "https://shield-guard-44ecf-default-rtdb.firebaseio.com",
-            projectId: "shield-guard-44ecf",
-            storageBucket: "shield-guard-44ecf.appspot.com",
-            messagingSenderId: "792292181818",
-            appId: "1:792292181818:web:e5f05e1714526cc0e2b203"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-
-        //auth and firestore references
-        const auth = getAuth(app);
-
-        //init storage
-        const storage = getStorage();
-
-        //firestore DB
-        const db = getFirestore(app);
-        // Define the deleteRegistrationRequest function
-        // Define the function first
-        function deleteDocumentFromCollection(reqid) {
-            const docRef = doc(db, 'contact-us', reqid);
-            alert('hello');
-            deleteDoc(docRef)
-                .then(() => {
-                    console.log('Document deleted successfully');
-                })
-                .catch((error) => {
-                    console.error('Error deleting document:', error);
-                });
-        }
-
-        // Fetch and display data
-        function fetchAndDisplayData() {
-            const ulElement = document.getElementById('req-list'); // ID of the <ul> element
-
-            // Retrieve documents from Firestore collection
-            getDocs(collection(db, 'contact-us'))
-                .then((snapshot) => {
-                    // Clear existing list items
-                    ulElement.innerHTML = '';
-
-                    // Loop through each document
-                    snapshot.forEach((doc) => {
-                        const data = doc.data();
-                        const username = data.username;
-                        const phoneno = data.phone_no;
-                        const email = data.email;
-                        const message = data.message;
-                        const reqid = doc.id; // Retrieve the document ID
-
-                        // Create <li> element and set its content
-                        const liElement = document.createElement('li');
-                        liElement.className = 'list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg';
-                        liElement.innerHTML = `
-          <div class="d-flex flex-column">
-            <h6 class="mb-3 text-sm">Request ID: ${reqid}</h6>
-            <span class="mb-2 text-xs">User Name: <span class="text-dark font-weight-bold ms-sm-2">${username}</span></span>
-            <span class="mb-2 text-xs">Phone No: <span class="text-dark font-weight-bold ms-sm-2">${phoneno}</span></span>
-            <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">${email}</span></span>
-            <span class="text-xs">Message: <span class="text-dark ms-sm-2 font-weight-bold">${message}</span></span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger px-3 mb-0" href="#" onclick="deleteDocumentFromCollection('${reqid}')">
-              <i class="fas fa-trash-alt text-dark me-2" aria-hidden="true"></i>Delete
-            </a>
-          </div>
-        `;
-
-                        // Append the <li> element to the <ul> element
-                        ulElement.appendChild(liElement);
-                    });
-                })
-                .catch((error) => {
-                    console.log('Error getting documents:', error);
-                });
-        }
-
-        // Call the function when the page is loaded or reloaded
-        window.addEventListener('load', () => {
-            fetchAndDisplayData();
-        });
-
-    </script>
 </head>
 
 <body>
@@ -243,7 +150,7 @@
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="tables-data.html">
-                            <i class="bi bi-circle"></i><span>User's Data</span>
+                            <i class="bi bi-circle"></i><span>Owner's Data</span>
                         </a>
                     </li>
                     <li>
@@ -382,6 +289,98 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js";
+        import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc, updateDoc, query, where, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-auth.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-storage.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD5t1c_-5hy0mwAlmNngRI2QOnA8XJgYwg",
+            authDomain: "shield-guard-44ecf.firebaseapp.com",
+            databaseURL: "https://shield-guard-44ecf-default-rtdb.firebaseio.com",
+            projectId: "shield-guard-44ecf",
+            storageBucket: "shield-guard-44ecf.appspot.com",
+            messagingSenderId: "792292181818",
+            appId: "1:792292181818:web:e5f05e1714526cc0e2b203"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        //auth and firestore references
+        const auth = getAuth(app);
+
+        //init storage
+        const storage = getStorage();
+
+        //firestore DB
+        const db = getFirestore(app);
+        // Define the deleteRegistrationRequest function
+        function deleteDocumentFromCollection(reqid) {
+            const docRef = doc(db, 'contact-us', reqid);
+            alert('hello');
+            deleteDoc(docRef)
+                .then(() => {
+                    console.log('Document deleted successfully');
+                })
+                .catch((error) => {
+                    console.error('Error deleting document:', error);
+                });
+        }
+        // Fetch and display data
+        function fetchAndDisplayData() {
+            const ulElement = document.getElementById('req-list'); // ID of the <ul> element
+
+            // Retrieve documents from Firestore collection
+            getDocs(collection(db, 'contact-us'))
+                .then((snapshot) => {
+                    // Clear existing list items
+                    ulElement.innerHTML = '';
+
+                    // Loop through each document
+                    snapshot.forEach((doc) => {
+                        const data = doc.data();
+                        const username = data.username;
+                        const phoneno = data.phone_no;
+                        const email = data.email;
+                        const message = data.message;
+                        const reqid = doc.id; // Retrieve the document ID
+
+                        // Create <li> element and set its content
+                        const liElement = document.createElement('li');
+                        liElement.className = 'list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg';
+                        liElement.innerHTML = `
+              <div class="d-flex flex-column">
+                <h6 class="mb-3 text-sm">Request ID: ${reqid}</h6>
+                <span class="mb-2 text-xs">User Name: <span class="text-dark font-weight-bold ms-sm-2">${username}</span></span>
+                <span class="mb-2 text-xs">Phone No: <span class="text-dark font-weight-bold ms-sm-2">${phoneno}</span></span>
+                <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">${email}</span></span>
+                <span class="text-xs">Message: <span class="text-dark ms-sm-2 font-weight-bold">${message}</span></span>
+              </div>
+              <div class="ms-auto text-end">
+                <a class="btn btn-link text-danger px-3 mb-0" href="#" onclick="deleteDocumentFromCollection('${reqid}')">
+                  <i class="fas fa-trash-alt text-dark me-2" aria-hidden="true"></i>Delete
+                </a>
+              </div>
+            `;
+                        // Append the <li> element to the <ul> element
+                        ulElement.appendChild(liElement);
+                    });
+                })
+                .catch((error) => {
+                    console.log('Error getting documents:', error);
+                });
+        }
+
+        // Call the function when the page is loaded or reloaded
+        window.addEventListener('load', () => {
+            fetchAndDisplayData();
+        });
+
+    </script>
 </body>
 
 </html>

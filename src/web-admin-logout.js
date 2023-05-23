@@ -31,7 +31,7 @@ logoutAnchor.addEventListener('click', (e) => {
     signOut(webAdminAuth)
         .then(() => {
             // Perform any additional actions after logout
-            window.location.href = '../../ShieldGuard.html'; // Redirect to login page
+            window.location.href = 'pages-login.html'; // Redirect to login page
             alert('Webpage Admin Logged out');
         })
         .catch((error) => {
@@ -66,11 +66,6 @@ onAuthStateChanged(getAuth(), (user) => {
 
 // Update the "webadmin" element when the user moves between floating window
 window.addEventListener("focus", updateWebAdminElement);
-
-//subscribe to auth changes that occur
-// onAuthStateChange(webAdminAuth, (user) => {
-//     console.log('user state changed : ', user)
-// })
 
 
 
